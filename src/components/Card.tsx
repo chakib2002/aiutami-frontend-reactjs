@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from './Button'
 
 export const Card = ( {title, text} : {title:string, text : string} ) => {
   return (
@@ -9,8 +10,9 @@ export const Card = ( {title, text} : {title:string, text : string} ) => {
         <div className='ml-5 mb-5 opacity-80 mr-2'>
             {text}
         </div>
-        <button className=' px-5 py-2 bg-primary rounded-lg hover:bg-bluedark text-white ml-5 mb-5
-        transition transition-duration-400 ease-out active:scale-95'>Hire now</button>
+        <div className='ml-5'>
+        <Button text='Hire now'/>
+        </div>
     </div>
   )
 }

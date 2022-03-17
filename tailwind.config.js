@@ -4,7 +4,14 @@ module.exports = {
     './src/components/Navbar.tsx',
     './src/components/Banner.tsx',
     './src/components/Card.tsx',
-    './src/components/CardsSection.tsx'
+    './src/components/Cards.tsx',
+    './src/components/LargeCard.tsx',
+    './src/components/LargeCards.tsx',
+    './src/components/Button.tsx',
+    './src/Images/Grandma.svg',
+    './src/Images/Confirmed.svg',
+    './src/Images/Search.svg',
+    './src/Images/Worktime.svg'
   ],
   theme: {
     extend: {},

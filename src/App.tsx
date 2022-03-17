@@ -1,5 +1,6 @@
 import { Banner } from "./components/Banner";
-import { CardsSection } from "./components/CardsSection";
+import { Cards } from "./components/Cards";
+import { LargeCards } from "./components/LargeCards";
 import { NavBar } from "./components/Navbar";
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
     <div>
       <NavBar firstname="" lastname="" link="" />
       <Banner />
-      <CardsSection/>
+      <Cards/>
+      <LargeCards />
     </div>
   );
 }
