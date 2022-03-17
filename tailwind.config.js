@@ -13,7 +13,11 @@ module.exports = {
     './src/Images/Search.svg',
     './src/Images/Worktime.svg',
     './src/components/Footer.tsx',
-    './src/components/Section.tsx'
+    './src/components/Section.tsx',
+    './src/Images/Copywrite.svg',
+    './src/Images/Gmail.svg',
+    './src/Images/Facebook.svg',
+    './src/Images/Instagram.svg'
   ],
   theme: {
     extend: {},
