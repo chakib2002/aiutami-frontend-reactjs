@@ -1,12 +1,12 @@
 import React from 'react';
 
-export const NavBar = ({firstname, lastname, link}: {firstname:string, lastname: string , link:string}) => {
+export const NavBar = ({firstname, lastname, link, auth}: {firstname:string, lastname: string , link:string, auth:boolean}) => {
   return (
     <div className='grid grid-cols-6 '>
       <div className='bg-primary col-span-3'>
         <div className=' cursor-pointer font-bold text-2xl text-secondary ml-5 my-5 active:text-bluedark transition transition-duration-400 ease-out '>Aiutami</div>
       </div>
-      <div className='order-3 col-span-6 shadow-lg  flex justify-evenly md:justify-start md:space-x-10
+      {!auth && <div className='order-3 col-span-6 shadow-lg  flex justify-evenly md:justify-start md:space-x-10
        text-primary'>
         <div className='cursor-pointer my-6 md:font-medium md:text-lg md:border-l-2 pl-5 md:ml-5 
           hover:text-bluedark active:scale-95 transition transition-duration-400 ease-out'>
@@ -20,7 +20,7 @@ export const NavBar = ({firstname, lastname, link}: {firstname:string, lastname:
           hover:text-bluedark active:scale-95 transition transition-duration-400 ease-out'>
             Seniorcaregiver
         </div>
-      </div>
+      </div>}
     {firstname.length ===0 && lastname.length ===0 ? 
     <div className='bg-primary col-span-3'>
       <div className=' cursor-pointer text-secondary mt-6 text-right mr-10 

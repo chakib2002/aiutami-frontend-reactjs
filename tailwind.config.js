@@ -17,7 +17,10 @@ module.exports = {
     './src/Images/Copywrite.svg',
     './src/Images/Gmail.svg',
     './src/Images/Facebook.svg',
-    './src/Images/Instagram.svg'
+    './src/Images/Instagram.svg',
+    './src/components/Login.tsx',
+    './src/Images/EmailIcon.svg',
+    './src/Images/Lock.svg'
   ],
   theme: {
     extend: {},
@@ -25,7 +28,10 @@ module.exports = {
       primary: '#42C2FF',
       secondary :'#EFFFFD',
       bluedark : '#063970',
-      white : '#ffffff'
+      white : '#ffffff',
+      green : '#519259',
+      darkgreen :'#064635',
+      lightgray : '#D4D4D4'
     }
   },
   plugins: [],

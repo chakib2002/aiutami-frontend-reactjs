@@ -11,7 +11,7 @@ export const Card = ( {title, text} : {title:string, text : string} ) => {
             {text}
         </div>
         <div className='text-center md:text-left md:ml-5'>
-        <Button text='Hire now'/>
+        <Button  text='Hire now'/>
         </div>
     </div>
   )
