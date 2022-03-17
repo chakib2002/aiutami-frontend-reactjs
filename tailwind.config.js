@@ -11,7 +11,9 @@ module.exports = {
     './src/Images/Grandma.svg',
     './src/Images/Confirmed.svg',
     './src/Images/Search.svg',
-    './src/Images/Worktime.svg'
+    './src/Images/Worktime.svg',
+    './src/components/Footer.tsx',
+    './src/components/Section.tsx'
   ],
   theme: {
     extend: {},

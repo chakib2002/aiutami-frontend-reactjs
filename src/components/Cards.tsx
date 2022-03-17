@@ -3,7 +3,7 @@ import { Card } from './Card'
 
 export const Cards = () => {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-5'>
         <Card title='Tutor'
             text='Hire a private tutor to help you with your work at home, 
             filter the search at your prefrences and send a request to your favorite person .'
