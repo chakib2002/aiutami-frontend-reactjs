@@ -24,7 +24,7 @@ export const NavBar = ({firstname, lastname, link}: {firstname:string, lastname:
     {firstname.length ===0 && lastname.length ===0 ? 
     <div className='bg-primary col-span-3'>
       <div className=' cursor-pointer text-secondary mt-6 text-right mr-10 
-        hover:text-white font-semibold active:scale-95 transition transition-duration-400 ease-out '>
+        hover:text-white font-semibold active:text-bluedark transition transition-duration-400 ease-out '>
           Login
       </div>
     </div> 

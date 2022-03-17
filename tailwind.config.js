@@ -1,7 +1,10 @@
 module.exports = {
   content: [
     './src/index.tsx',
-    './src/components/Navbar.tsx'
+    './src/components/Navbar.tsx',
+    './src/components/Banner.tsx',
+    './src/components/Card.tsx',
+    './src/components/CardsSection.tsx'
   ],
   theme: {
     extend: {},
