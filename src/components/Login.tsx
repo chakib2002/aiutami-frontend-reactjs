@@ -12,9 +12,9 @@ export const Login = () => {
         
           <div className='mt-10 lg:m-auto lg:ml-44 mx-5 md:mx-10'>
             <div className='mb-5 text-center lg:text-left '>
-              <h1 className='text-2xl font-light tracking-wide'>Welcome Back :)</h1>
+              <h1 className='text-2xl font-light tracking-wide lg:ml-2'>Welcome Back :)</h1>
               <div className='w-80 m-auto'>
-                <p className='text-sm font-thin opacity-70 lg:w-1/2'>If you already have an account please login with us using your email and password .</p>
+                <p className='text-sm font-thin opacity-70'>If you already have an account please login with us using your email and password .</p>
               </div>
             </div>
             <div className='text-center lg:text-left'>
@@ -24,7 +24,7 @@ export const Login = () => {
                 <input type="email" placeholder='Enter your email' className='focus:outline-none ml-2 bg-lightgray' />
               </div>
 
-              <div className='py-2 px-3 mb-2 w-72 m-auto'>
+              <div className='py-2 px-3 mb-2 w-72 m-auto lg:w-80'>
                 <LockIcon />
                 <input type="password" placeholder='Enter your password' className='focus:outline-none ml-2' />
              </div>
