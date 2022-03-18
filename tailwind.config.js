@@ -20,7 +20,8 @@ module.exports = {
     './src/Images/Instagram.svg',
     './src/components/Login.tsx',
     './src/Images/EmailIcon.svg',
-    './src/Images/Lock.svg'
+    './src/Images/Lock.svg',
+    './src/Images/office.svg'
   ],
   theme: {
     extend: {},
