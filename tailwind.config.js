@@ -21,7 +21,10 @@ module.exports = {
     './src/components/Login.tsx',
     './src/Images/EmailIcon.svg',
     './src/Images/Lock.svg',
-    './src/Images/office.svg'
+    './src/Images/office.svg',
+    './src/components/Register.tsx',
+    './src/components/Input.tsx',
+    './src/Images/next.svg'
   ],
   theme: {
     extend: {},

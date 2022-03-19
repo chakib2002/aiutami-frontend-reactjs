@@ -1,11 +1,9 @@
-import { Login } from "./components/Login";
-import { NavBar } from "./components/Navbar";
+import {Register} from './components/Register'
 
 function App() {
   return (
     <div>
-      <NavBar firstname="" lastname="" link="" auth={true}/>
-      <Login />
+      <Register />
     </div>
   );
 }
