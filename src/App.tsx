@@ -1,9 +1,9 @@
-import {Register} from './components/Register'
+import {Signup} from './components/Signup'
 
 function App() {
   return (
     <div>
-      <Register />
+      <Signup SignUpPage={2} careType={null} />
     </div>
   );
 }

@@ -22,9 +22,18 @@ module.exports = {
     './src/Images/EmailIcon.svg',
     './src/Images/Lock.svg',
     './src/Images/office.svg',
-    './src/components/Register.tsx',
     './src/components/Input.tsx',
-    './src/Images/next.svg'
+    './src/Images/next.svg',
+    './src/components/Signup.tsx',
+    './src/components/Signup1.tsx',
+    './src/components/SignupForm1.tsx',
+    './src/components/SignupDesign.tsx',
+    './src/components/PriceRange.tsx',
+    './src/components/TextArea.tsx',
+    './src/components/Day.tsx',
+    './src/Images/Prev.tsx',
+    './src/Images/Next1.svg'
+
   ],
   theme: {
     extend: {},
@@ -33,6 +42,7 @@ module.exports = {
       secondary :'#EFFFFD',
       bluedark : '#063970',
       white : '#ffffff',
+      dark:'#000000',
       green : '#519259',
       darkgreen :'#064635',
       lightgray : '#D4D4D4'
