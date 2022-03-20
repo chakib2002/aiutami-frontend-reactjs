@@ -13,7 +13,7 @@ export const SignupFormTutor = () => {
         <p className='lg:text-left w-[70%] mx-auto lg:mx-10 mt-2 mb-10 opacity-50 tracking-widest border-b-2 border-lightgray pb-3 cursor-default'>
           Get started for free and become a full-time or a part-time freelancer.
         </p>
-        <div className='block lg:flex justify-center lg:justify-start lg:mx-10'>
+        <div className='block lg:flex justify-center lg:justify-start lg:mx-10 mb-5'>
             <Input htmlFor='Education' type='text' name='Education' width='w-80 lg:w-96'/>
         </div>
             <Radio />
@@ -22,7 +22,7 @@ export const SignupFormTutor = () => {
             <DropDown name='Subjects' options={["Math", "Physics", "Science", "English", "French", "Computer science"]} />
             <DropDown name='Class' options={["First", "Second", "Third", "Fourth", "Fifth"]} />
         </div>
-        <div className='mt-10 mb-10 flex justify-center lg:justify-start mx-10 '>
+        <div className='mt-10 only:lg:mt-20 mb-10 flex justify-center lg:justify-start mx-10 '>
             <Prev2 />
             <div className='w-full text-right'>
               <button className='px-5 text-right py-2 rounded-full border-2 border-green bg-white hover:bg-green hover:text-white text-green active:scale-95 transition transition-duration-400 ease-out'>
