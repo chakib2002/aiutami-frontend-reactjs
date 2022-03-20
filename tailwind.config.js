@@ -1,52 +1,25 @@
 module.exports = {
+  purge: ['./src/**/*.{svg}', './src/**/*.{js,ts,jsx,tsx}'],
   content: [
-    './src/index.tsx',
-    './src/components/Navbar.tsx',
-    './src/components/Banner.tsx',
-    './src/components/Card.tsx',
-    './src/components/Cards.tsx',
-    './src/components/LargeCard.tsx',
-    './src/components/LargeCards.tsx',
-    './src/components/Button.tsx',
-    './src/Images/Grandma.svg',
-    './src/Images/Confirmed.svg',
-    './src/Images/Search.svg',
-    './src/Images/Worktime.svg',
-    './src/components/Footer.tsx',
-    './src/components/Section.tsx',
-    './src/Images/Copywrite.svg',
-    './src/Images/Gmail.svg',
-    './src/Images/Facebook.svg',
-    './src/Images/Instagram.svg',
-    './src/components/Login.tsx',
-    './src/Images/EmailIcon.svg',
-    './src/Images/Lock.svg',
-    './src/Images/office.svg',
-    './src/components/Input.tsx',
-    './src/Images/next.svg',
-    './src/components/Signup.tsx',
-    './src/components/Signup1.tsx',
-    './src/components/SignupForm1.tsx',
-    './src/components/SignupDesign.tsx',
-    './src/components/PriceRange.tsx',
-    './src/components/TextArea.tsx',
-    './src/components/Day.tsx',
-    './src/Images/Prev.tsx',
-    './src/Images/Next1.svg'
-
+    './src/**/*.{html,js,tsx, ts}',
+    './node_modules/tw-elements/dist/js/**/*.js'
+   
   ],
   theme: {
-    extend: {},
-    colors : {
-      primary: '#42C2FF',
-      secondary :'#EFFFFD',
-      bluedark : '#063970',
-      white : '#ffffff',
-      dark:'#000000',
-      green : '#519259',
-      darkgreen :'#064635',
-      lightgray : '#D4D4D4'
-    }
+    extend: {
+      colors : {
+        primary: '#42C2FF',
+        secondary :'#EFFFFD',
+        bluedark : '#063970',
+        white : '#ffffff',
+        dark:'#000000',
+        green : '#519259',
+        darkgreen :'#064635',
+        lightgray : '#D4D4D4'
+      }
+    },
   },
-  plugins: [],
+  plugins: [
+    require('tw-elements/dist/plugin')
+  ]
 }

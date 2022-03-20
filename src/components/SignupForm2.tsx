@@ -8,10 +8,10 @@ import {ReactComponent as Prev} from '../Images/Prev.svg'
 export const SignupForm2 = ({careType}: {careType:string}) => {
   return (
     <div className='mt-10'>
-      <h1 className='text-3xl font-extrabold cursor-default'>Sign up</h1>
-      <p className='w-[70%] mx-auto mt-2 mb-10 opacity-50 tracking-widest border-b-2 border-lightgray pb-3 cursor-default'>Get started for free and become a full-time or a part-time freelancer.</p>
+      <h1 className='text-3xl font-extrabold cursor-default lg:text-left lg:mx-10'>Sign up</h1>
+      <p className=' lg:text-left lg:mx-10 w-[70%] mx-auto mt-2 mb-10 opacity-50 tracking-widest border-b-2 border-lightgray pb-3 cursor-default'>Get started for free and become a full-time or a part-time freelancer.</p>
         <div className='block lg:flex justify-center lg:justify-start'>
-        <PriceRange price={30}/>
+          <PriceRange price={30}/>
         </div> 
       <TextArea />
       <Availability />

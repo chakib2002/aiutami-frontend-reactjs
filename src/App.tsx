@@ -3,7 +3,7 @@ import {Signup} from './components/Signup'
 function App() {
   return (
     <div>
-      <Signup SignUpPage={2} careType={null} />
+      <Signup SignUpPage={3} careType='Tutor' />
     </div>
   );
 }

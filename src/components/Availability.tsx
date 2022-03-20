@@ -5,7 +5,7 @@ export const Availability = () => {
   return (
     <div>
         <p className='mx-10 text-left block text-md opacity-100 font-medium mt-2 cursor-default'>Availability</p>
-       <div className="sm:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 space-x-2 mx-5">
+       <div className="grid-col-3 space-x-2 mx-5 lg:mx-5 md:mx-10 ">
             <Day day='Monday' selected/>
             <Day day='Tuesday' selected/>
             <Day day='Wednesday' selected/>
