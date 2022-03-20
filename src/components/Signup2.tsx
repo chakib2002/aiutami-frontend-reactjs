@@ -6,7 +6,7 @@ export const Signup2 = () => {
   return (
     <div className='text-center lg:grid lg:grid-flow-col lg:col-span-3'>
         <SignupDesign />
-        <SignupForm2 careType='Housekeeper' />
+        <SignupForm2 careType='Housekeeer' />
     </div>
   )
 }

@@ -18,7 +18,7 @@ export const SignupForm2 = ({careType}: {careType:string}) => {
      
         {
           careType==='Housekeeper'? 
-          <div className='mt-10 mb-10 flex justify-center lg:justify-start mx-10 space-x-40'>
+          <div className='mt-10 mb-10 flex justify-center lg:justify-start mx-10 '>
             <Prev />
             <div className='w-full text-right'>
               <button className='px-5 text-right py-2 rounded-full border-2 border-green bg-white hover:bg-green hover:text-white text-green active:scale-95 transition transition-duration-400 ease-out'>
@@ -27,9 +27,13 @@ export const SignupForm2 = ({careType}: {careType:string}) => {
             </div>
           </div>
           :
-          <div className='mt-10 mb-10 flex justify-between'>
+          <div className='mt-10 mb-10 flex justify-center lg:justify-start mx-10 '>
+            <div className='w-full text-left'>
               <Prev />
+            </div>
+            <div className='w-full text-right'>
               <Next1 />
+            </div>
           </div>
         }
      
