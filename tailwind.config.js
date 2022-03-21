@@ -1,8 +1,8 @@
 module.exports = {
-  purge: ['./src/**/*.{svg}', './src/**/*.{js,ts,jsx,tsx}'],
   content: [
     './src/**/*.{html,js,tsx, ts}',
-    './node_modules/tw-elements/dist/js/**/*.js'
+    './node_modules/tw-elements/dist/js/**/*.js',
+    './src/**/*.svg', './src/**/*.{js,ts,jsx,tsx}'
    
   ],
   theme: {
