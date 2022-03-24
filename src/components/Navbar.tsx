@@ -1,12 +1,14 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom'
 export const NavBar = ({firstname, lastname, link, auth}: {firstname:string, lastname: string , link:string, auth:boolean}) => {
   return (
     <div className='grid grid-cols-6 '>
       <div className='bg-primary col-span-3'>
-        <div className=' cursor-pointer font-bold text-2xl text-secondary ml-5 my-5 active:text-bluedark transition transition-duration-400 ease-out '>Aiutami</div>
+        <Link to= '/'>
+          <div className=' cursor-pointer font-bold text-2xl text-secondary ml-5 my-5 active:text-bluedark transition transition-duration-400 ease-out '>Aiutami</div>
+        </Link>
       </div>
-      {!auth && <div className='order-3 col-span-6 shadow-lg  flex justify-evenly md:justify-start md:space-x-10
+      {!auth &&<div className='order-3 col-span-6 shadow-lg  flex justify-evenly md:justify-start md:space-x-10
        text-primary'>
         <div className='cursor-pointer my-6 md:font-medium md:text-lg md:border-l-2 pl-5 md:ml-5 
           hover:text-bluedark active:scale-95 transition transition-duration-400 ease-out'>
@@ -23,10 +25,13 @@ export const NavBar = ({firstname, lastname, link, auth}: {firstname:string, las
       </div>}
     {firstname.length ===0 && lastname.length ===0 ? 
     <div className='bg-primary col-span-3'>
-      <div className=' cursor-pointer text-secondary mt-6 text-right mr-10 
-        hover:text-white font-semibold active:text-bluedark transition transition-duration-400 ease-out '>
-          Login
-      </div>
+      <Link to='/signin'>
+        <div className=' cursor-pointer text-secondary mt-6 text-right mr-10 
+          hover:text-white font-semibold active:text-bluedark transition transition-duration-400 ease-out '>
+            Login
+        </div>
+      </Link>
+
     </div> 
       :
       <div className='bg-primary py-4 col-span-3 space-x-5 text-right pr-5'>

@@ -1,11 +1,15 @@
-export interface signin  {
-    email : string,
-    password : string
+export interface signin {
+    email? : string ,
+    password? : string 
 }
 
-export interface SignIn extends signin {
+
+export interface SignIn {
+    email? : string,
+    password? : string,
     box : string
 }
+
 
 enum care_type  {
     tutor = "Tutor",
@@ -85,4 +89,39 @@ export interface signup {
     mobility_assistance : boolean ,
     specialized_care : boolean, 
     companionship : boolean
+}
+
+export interface SignUp extends signup {
+    box : string
+} 
+
+export enum signinBox {
+    EMAIL ="email",
+    PASSWORD = "password"
+}
+
+export enum signupBox {
+    FIRST_NAME = "first name",
+    LAST_NAME = "last name",
+    EMAIL ="email",
+    PASSWORD = "password",
+    PICTURE_LINK = "picture_link",
+    CARE_TYPE = "care type",
+    OCCUPATION = "occupation",
+    PROVINCE = "province" ,
+    ABOUT_ME = "about me",
+    PRICE = "price",
+    AGE = "age",
+    AVAILABILITY= "availability" ,
+    LEVEL = "level",
+    SUBJECT = "subject",
+    SCHOOL_YEAR = "school year",
+    EDUCATION = "education",
+    TRANSPORTATION = "transportation",
+    HOUSE_HOLD_TASKS = "house holds and tasks",
+    PERSONAL_CARE = "personal care",
+    MOBILITY_ASSISTANCE = "mobility assistance",
+    SPECIALIZED_CARE = "specialized care",
+    COMPANIONSHIP = "companionship"
+    
 }
