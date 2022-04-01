@@ -1,98 +1,158 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import { signinInitialState, signupInitialState } from '../initialStates'
-import { SignIn, signinBox, SignUp, signupBox } from '../types'
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { signinInitialState, signupInitialState } from "../initialStates";
+import {
+  signupCareType,
+  signupClass,
+  signupLevel,
+  signupProvince,
+  signupSubjects,
+  textBool,
+  TextNumber,
+  textString,
+} from "../types/interfaces";
 
 export const signinReducer = createSlice({
-    name:"signin",
-    initialState: signinInitialState,
-    reducers : {
-        signin : (state,{payload} : PayloadAction<SignIn>)=> {
-            if(payload.box === signinBox.EMAIL){
-                state.email = payload.email
-            }else if (payload.box === signinBox.PASSWORD){
-                state.password = payload.password
-            }
-            }
-        }
-    }
-)
+  name: "signin",
+  initialState: signinInitialState,
+  reducers: {
+    SigninEmail: (state, { payload }: PayloadAction<textString>) => {
+      state.email = payload.text;
+    },
+    SigninPassword: (state, { payload }: PayloadAction<textString>) => {
+      state.password = payload.text;
+    },
+  },
+});
 export const signupReducer = createSlice({
-    name : "signup",
-    initialState : signupInitialState,
-    reducers : {
-        signup : (state, {payload} : PayloadAction<SignUp>) =>{
-            switch (payload.box) {
-                case signupBox.FIRST_NAME :
-                    state.firstName = payload.firstName;
-                    break;
-                case signupBox.LAST_NAME :
-                    state.lastName = payload.lastName;
-                    break;
-                case signupBox.EMAIL :
-                    state.email = payload.email
-                    break;
-                case signupBox.PASSWORD : 
-                    state.password = payload.password
-                    break;
-                case signupBox.PICTURE_LINK :
-                    state.pictureLink = payload.pictureLink
-                    break;
-                case signupBox.CARE_TYPE :
-                    state.careType = payload.careType;
-                    break;
-                case signupBox.OCCUPATION : 
-                    state.occupation = payload.occupation
-                    break;
-                case signupBox.PROVINCE :
-                    state.province = payload.province
-                    break;
-                case signupBox.ABOUT_ME :
-                    state.aboutMe = payload.aboutMe
-                    break;
-                case signupBox.PRICE :
-                    state.price = payload.price
-                    break;
-                case signupBox.AGE :
-                    state.age= payload.age
-                    break;
-                case signupBox.AVAILABILITY :
-                    state.availability = payload.availability
-                    break;
-                case signupBox.LEVEL:
-                    state.level = payload.level
-                    break;
-                case signupBox.SUBJECT :
-                    state.subject = payload.subject
-                    break;
-                case signupBox.SCHOOL_YEAR :
-                    state.school_year = payload.school_year
-                    break;
-                case signupBox.EDUCATION :
-                    state.education = payload.education
-                    break;
-                case signupBox.TRANSPORTATION :
-                    state.transportation= payload.transportation
-                    break;
-                case signupBox.HOUSE_HOLD_TASKS:
-                    state.house_hold_tasks = payload.house_hold_tasks
-                    break;
-                case signupBox.PERSONAL_CARE :
-                    state.personal_care= payload.personal_care
-                    break;
-                case signupBox.MOBILITY_ASSISTANCE :
-                    state.mobility_assistance = payload.mobility_assistance
-                    break;
-                case signupBox.SPECIALIZED_CARE :
-                    state.specialized_care = payload.specialized_care
-                    break;
-                case signupBox.COMPANIONSHIP :
-                    state.companionship = payload.companionship
-                    break;
-                default:
-                    return state  ;          
-        }
-    }}
-})
+  name: "signup",
+  initialState: signupInitialState,
+  reducers: {
+    SignupFirstName: (state, { payload }: PayloadAction<textString>) => {
+      state.firstName = payload.text;
+    },
+    SignupLastName: (state, { payload }: PayloadAction<textString>) => {
+      state.lastName = payload.text;
+    },
+    SignupEmail: (state, { payload }: PayloadAction<textString>) => {
+      state.email = payload.text;
+    },
+    SignupPhoneNumber: (state, { payload }: PayloadAction<textString>) => {
+      state.phoneNumber = payload.text;
+    },
+    SignupAge: (state, { payload }: PayloadAction<TextNumber>) => {
+      state.age = payload.text;
+    },
+    SignupOccupation: (state, { payload }: PayloadAction<textString>) => {
+      state.occupation = payload.text;
+    },
+    SignupProvince: (state, { payload }: PayloadAction<signupProvince>) => {
+      state.province = payload.text;
+    },
+    SignupCareType: (state, { payload }: PayloadAction<signupCareType>) => {
+      state.careType = payload.text;
+    },
+    SignupPassword: (state, { payload }: PayloadAction<textString>) => {
+      state.password = payload.text;
+    },
+    SignupConfirmedPassword: (
+      state,
+      { payload }: PayloadAction<textString>
+    ) => {
+      state.confirmPassword = payload.text;
+    },
+    SignupPrice: (state, { payload }: PayloadAction<TextNumber>) => {
+      state.price = payload.text;
+    },
+    SignupAboutMe: (state, { payload }: PayloadAction<textString>) => {
+      state.aboutMe = payload.text;
+    },
+    SignupAvailabilityAdd: (state, { payload }: PayloadAction<textString>) => {
+      state.availability.push(payload.text);
+    },
+    SignupAvailabilityRemove: (
+      state,
+      { payload }: PayloadAction<textString>
+    ) => {
+      const index = state.availability.indexOf(payload.text);
+      if (index > -1) {
+        state.availability.splice(index, 1);
+      }
+    },
+    SignupTransportation: (state, { payload }: PayloadAction<textBool>) => {
+      state.transportation = payload.text;
+    },
+    SignupHouseHoldTasks: (state, { payload }: PayloadAction<textBool>) => {
+      state.house_hold_tasks = payload.text;
+    },
+    SignupPersonalCare: (state, { payload }: PayloadAction<textBool>) => {
+      state.personal_care = payload.text;
+    },
+    SignupSpecializedCare: (state, { payload }: PayloadAction<textBool>) => {
+      state.specialized_care = payload.text;
+    },
+    SignupMobilityAssisstance: (
+      state,
+      { payload }: PayloadAction<textBool>
+    ) => {
+      state.mobility_assistance = payload.text;
+    },
+    SignupCompanionship: (state, { payload }: PayloadAction<textBool>) => {
+      state.companionship = payload.text;
+    },
+    SignupEducation: (state, { payload }: PayloadAction<textString>) => {
+      state.education = payload.text;
+    },
+    SignupLevel: (state, { payload }: PayloadAction<signupLevel>) => {
+      state.level = payload.text;
+    },
+    SignupSubject: (state, { payload }: PayloadAction<signupSubjects>) => {
+      state.subject = payload.text;
+    },
+    SignupClass: (state, { payload }: PayloadAction<signupClass>) => {
+      state.school_year = payload.text;
+    },
+  },
+});
 
-export const { signin } = signinReducer.actions;
-export const { signup } = signupReducer.actions
+export const PageNumber = createSlice({
+  name: "pagenumber",
+  initialState: 1,
+  reducers: {
+    Next: (state) => {
+      return state + 1;
+    },
+    Prev: (state) => {
+      return state - 1;
+    },
+  },
+});
+
+export const { SigninEmail, SigninPassword } = signinReducer.actions;
+export const {
+  SignupFirstName,
+  SignupLastName,
+  SignupEmail,
+  SignupPhoneNumber,
+  SignupOccupation,
+  SignupAge,
+  SignupCareType,
+  SignupConfirmedPassword,
+  SignupPassword,
+  SignupProvince,
+  SignupPrice,
+  SignupAboutMe,
+  SignupAvailabilityAdd,
+  SignupAvailabilityRemove,
+  SignupCompanionship,
+  SignupHouseHoldTasks,
+  SignupMobilityAssisstance,
+  SignupPersonalCare,
+  SignupSpecializedCare,
+  SignupTransportation,
+  SignupEducation,
+  SignupClass,
+  SignupLevel,
+  SignupSubject,
+} = signupReducer.actions;
+
+export const { Next, Prev } = PageNumber.actions;

@@ -5,14 +5,10 @@ import {ReactComponent as LockIcon} from "../Images/Lock.svg";
 import {Link} from 'react-router-dom'
 import { NavBarLogin } from './NavBarLogin';
 import {useDispatch} from 'react-redux'
-// import {useSelector} from 'react-redux'
-// import { signinState } from '../state/configureStore';
-import { signin } from '../state/Slices/authSlices';
-import { signinBox } from '../state/types';
+import { SigninEmail, SigninPassword } from '../state/Slices/authSlices';
 
 export const Login = () => {
   const dispatch = useDispatch();
-  // const signipState = useSelector(signinState);
     
   return (
     <>
@@ -30,12 +26,12 @@ export const Login = () => {
 
               <div className='py-2 px-3 mb-2 bg-lightgray lg:w-80 lg:rounded-sm w-72 m-auto '>
                 <EmailIcon />
-                <input type="email" placeholder='Enter your email' className='focus:outline-none ml-2 bg-lightgray' onChange={(e)=>dispatch(signin({box: signinBox.EMAIL, email:e.target.value}))} />
+                <input type="email" placeholder='Enter your email' className='focus:outline-none ml-2 bg-lightgray' onChange={(e)=>dispatch(SigninEmail({text : e.target.value}))} />
               </div>
 
               <div className='py-2 px-3 mb-2 w-72 m-auto lg:w-80'>
                 <LockIcon />
-                <input type="password" placeholder='Enter your password' className='focus:outline-none ml-2' onChange={(e)=>dispatch(signin({box: signinBox.PASSWORD , password: e.target.value}))} />
+                <input type="password" placeholder='Enter your password' className='focus:outline-none ml-2' onChange={(e)=>dispatch(SigninPassword({text : e.target.value}))} />
              </div>
 
               <p className='text-sm font-thin opacity-50 mb-5 cursor-pointer hover:opacity-100 text-center lg:text-left'>Forget Password</p>
