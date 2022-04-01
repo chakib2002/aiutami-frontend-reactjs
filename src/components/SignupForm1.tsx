@@ -186,7 +186,7 @@ export const SignupForm1 = () => {
         {isValid ? (
           <button
             onClick={() => dispatch(Next())}
-            className=" mb-10 lg:mb-0 bg-primary text-white text-sm font-medium h-10 w-24 rounded-lg hover:border hover:border-primary hover:text-primary hover:scale-105 hover:bg-white active:scale-95 transition transition-duration-400 ease-out"
+            className=" mb-10 lg:mb-0 bg-primary text-white text-sm font-medium h-10 w-24 rounded-lg hover:border hover:border-primary hover:text-primary hover:bg-white active:scale-95 transition transition-duration-400 ease-out"
           >
             Next
           </button>
