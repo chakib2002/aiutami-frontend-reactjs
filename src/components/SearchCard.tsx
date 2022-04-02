@@ -1,5 +1,6 @@
 import React from "react";
 import { SearchProvince } from "./SearchProvince";
+import { SearchProvinceHeader } from "./SearchProvinceHeader";
 
 export const SearchCard = ({
   title,
@@ -14,13 +15,8 @@ export const SearchCard = ({
 }) => {
   return (
     <div className="border-2 rounded border-lightgray shadow-lg w-4/5 m-auto mt-10">
-      <h1 className="text-2xl font-bold mx-2 p-3 text-center mt-10 lg:text-left">
-        {title}
-      </h1>
-      <p className="mx-5 text-sm tracking-wide text-center lg:text-left ">
-        {text}
-      </p>
-      <div className="my-5 mx-5">
+      <SearchProvinceHeader title={title} text={text} />
+      <div className="mx-5 my-5">
         <SearchProvince />
       </div>
     </div>
