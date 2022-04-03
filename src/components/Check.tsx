@@ -8,7 +8,7 @@ import {
   SignupPersonalCare,
   SignupSpecializedCare,
   SignupTransportation,
-} from "../state/Slices/authSlices";
+} from "../state/Slices/authenticationSlices";
 
 export const Check = () => {
   const data = useSelector(signupState);

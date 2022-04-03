@@ -4,7 +4,7 @@ import { signupState, useAppDispatch } from "../state/configureStore";
 import {
   SignupAvailabilityAdd,
   SignupAvailabilityRemove,
-} from "../state/Slices/authSlices";
+} from "../state/Slices/authenticationSlices";
 
 export const Day = ({ day }: { day: string }) => {
   const dispatch = useAppDispatch();

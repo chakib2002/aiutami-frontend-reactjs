@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppDispatch } from "../state/configureStore";
-import { SignupAboutMe } from "../state/Slices/authSlices";
+import { SignupAboutMe } from "../state/Slices/authenticationSlices";
 
 export const TextArea = ({ state }: { state: string }) => {
   const dispatch = useAppDispatch();

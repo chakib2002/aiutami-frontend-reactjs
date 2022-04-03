@@ -1,7 +1,7 @@
 import React from "react";
 import { useAppDispatch } from "../state/configureStore";
 import { Check } from "./Check";
-import { Prev } from "../state/Slices/authSlices";
+import { Prev } from "../state/Slices/authenticationSlices";
 
 export const SignupFormSeniorcare = () => {
   const dispatch = useAppDispatch();

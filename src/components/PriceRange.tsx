@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { signupState, useAppDispatch } from "../state/configureStore";
-import { SignupPrice } from "../state/Slices/authSlices";
+import { SignupPrice } from "../state/Slices/authenticationSlices";
 
 export const PriceRange = () => {
   const data = useSelector(signupState);

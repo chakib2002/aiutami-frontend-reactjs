@@ -6,6 +6,7 @@ import {
   school_year_primary,
   school_year_secondary,
   subject,
+  need,
 } from "./enums";
 
 export interface textString {
@@ -37,4 +38,8 @@ export interface signupSubjects {
 
 export interface signupClass {
   text: school_year_primary | school_year_secondary | school_year_highschool;
+}
+
+export interface Need {
+  text: need | null;
 }

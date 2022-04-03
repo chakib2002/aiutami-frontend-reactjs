@@ -4,7 +4,7 @@ import { PriceRange } from "./PriceRange";
 import { TextArea } from "./TextArea";
 import { signupState, useAppDispatch } from "../state/configureStore";
 import { useSelector } from "react-redux";
-import { Next, Prev } from "../state/Slices/authSlices";
+import { Next, Prev } from "../state/Slices/authenticationSlices";
 import { care_type } from "../state/types/enums";
 
 export const SignupForm2 = () => {

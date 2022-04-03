@@ -1,4 +1,11 @@
-import { signin, signup } from "./types/types";
+import { care_type } from "./types/enums";
+import {
+  SearchHousekeeper,
+  SearchSeniorCaregiver,
+  SearchTutor,
+  signin,
+  signup,
+} from "./types/types";
 
 export const signinInitialState: signin = {
   email: "",
@@ -30,4 +37,40 @@ export const signupInitialState: signup = {
   mobility_assistance: false,
   specialized_care: false,
   companionship: false,
+};
+
+export const searchTutorInitialState: SearchTutor = {
+  careType: care_type.tutor,
+  province: null,
+  fullname: "",
+  phoneNumber: "",
+  job_description: "",
+  level: null,
+  subject: null,
+  school_year: null,
+  need: null,
+};
+
+export const searchHousekeeperInitialState: SearchHousekeeper = {
+  careType: care_type.housekeeper,
+  province: null,
+  fullname: "",
+  phoneNumber: "",
+  job_description: "",
+  need: null,
+};
+
+export const searchSeniorCaregiverInitialState: SearchSeniorCaregiver = {
+  careType: care_type.seniorcaregiver,
+  province: null,
+  fullname: "",
+  phoneNumber: "",
+  job_description: "",
+  transportation: false,
+  house_hold_tasks: false,
+  personal_care: false,
+  mobility_assistance: false,
+  specialized_care: false,
+  companionship: false,
+  need: null,
 };

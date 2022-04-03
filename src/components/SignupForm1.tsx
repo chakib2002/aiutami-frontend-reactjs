@@ -12,12 +12,12 @@ import {
   SignupPassword,
   SignupPhoneNumber,
   SignupProvince,
-} from "../state/Slices/authSlices";
+} from "../state/Slices/authenticationSlices";
 import { care_type, Casename, province } from "../state/types/enums";
 import { DropDown } from "./DropDown";
 import { useSelector } from "react-redux";
 import { signupState, useAppDispatch } from "../state/configureStore";
-import { Next } from "../state/Slices/authSlices";
+import { Next } from "../state/Slices/authenticationSlices";
 import { InvalidInput } from "./InvalidInput";
 
 export const SignupForm1 = () => {

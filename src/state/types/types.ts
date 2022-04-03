@@ -1,6 +1,7 @@
 import {
   care_type,
   level,
+  need,
   province,
   school_year_highschool,
   school_year_primary,
@@ -41,4 +42,44 @@ export type signup = {
   mobility_assistance: boolean;
   specialized_care: boolean;
   companionship: boolean;
+};
+
+export type SearchTutor = {
+  careType: care_type;
+  province: province | null;
+  fullname: string;
+  phoneNumber: string;
+  job_description: string;
+  level: level | null;
+  subject: subject | null;
+  school_year:
+    | school_year_highschool
+    | school_year_primary
+    | school_year_secondary
+    | null;
+  need: need | null;
+};
+
+export type SearchHousekeeper = {
+  careType: care_type;
+  province: province | null;
+  fullname: string;
+  phoneNumber: string;
+  job_description: string;
+  need: need | null;
+};
+
+export type SearchSeniorCaregiver = {
+  careType: care_type;
+  province: province | null;
+  fullname: string;
+  phoneNumber: string;
+  job_description: string;
+  transportation: boolean;
+  house_hold_tasks: boolean;
+  personal_care: boolean;
+  mobility_assistance: boolean;
+  specialized_care: boolean;
+  companionship: boolean;
+  need: need | null;
 };

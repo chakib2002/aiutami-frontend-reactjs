@@ -7,7 +7,7 @@ import {
   SignupClass,
   SignupEducation,
   SignupSubject,
-} from "../state/Slices/authSlices";
+} from "../state/Slices/authenticationSlices";
 import { useSelector } from "react-redux";
 import { signupState, useAppDispatch } from "../state/configureStore";
 import { Casename } from "../state/types/enums";

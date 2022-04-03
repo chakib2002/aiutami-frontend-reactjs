@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { signupState, useAppDispatch } from "../state/configureStore";
-import { SignupLevel } from "../state/Slices/authSlices";
+import { SignupLevel } from "../state/Slices/authenticationSlices";
 import { level } from "../state/types/enums";
 
 export const Radio = () => {
