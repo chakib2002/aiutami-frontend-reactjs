@@ -113,12 +113,14 @@ export const SignupForm1 = () => {
       <div className="block lg:flex lg:justify-center lg:space-x-5 ">
         <div>
           <DropDown
+            title={Casename.age}
             name={Casename.age}
             options={data}
             width="w-80  lg:ml-1 lg:w-[240px] "
             theAction={SignupAge}
           />
           <DropDown
+            title={Casename.Province}
             name={Casename.Province}
             options={[
               province.alger,
@@ -136,6 +138,7 @@ export const SignupForm1 = () => {
         </div>
         <div>
           <DropDown
+            title={Casename.careType}
             name={Casename.careType}
             width="w-80 lg:w-[245px]"
             options={[

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const SearchProvinceHeader = ({
+export const SearchHeader = ({
   title,
   text,
 }: {

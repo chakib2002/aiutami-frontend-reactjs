@@ -2,13 +2,23 @@ import React from "react";
 import { province } from "../state/types/enums";
 import { DropDown } from "./DropDown";
 import { Next } from "./Next";
+import { Casename } from "../state/types/enums";
 
-export const SearchProvince = () => {
+export const SearchProvince = ({
+  type,
+  next,
+  action,
+}: {
+  type: string;
+  next: Function;
+  action: Function;
+}) => {
   return (
     <div>
       <div>
         <DropDown
-          name="Province"
+          title={Casename.Province}
+          name={type}
           options={[
             province.alger,
             province.bejaia,
@@ -20,11 +30,11 @@ export const SearchProvince = () => {
             province.tiziouzou,
           ]}
           width=" w-56"
-          theAction={() => {}}
+          theAction={action}
         />
       </div>
       <div className="m-auto text-center lg:text-right my-5">
-        <Next />
+        <Next action={next} />
       </div>
     </div>
   );

@@ -1,20 +1,31 @@
 import React from "react";
-import { signupState, useAppDispatch } from "../state/configureStore";
+import {
+  searchHousekeeperState,
+  searchSeniorCaregiverState,
+  searchTutorState,
+  signupState,
+  useAppDispatch,
+} from "../state/configureStore";
 import { useSelector } from "react-redux";
 import { Casename } from "../state/types/enums";
 
 export const DropDown = ({
+  title,
   name,
   options,
   width,
   theAction,
 }: {
+  title: string;
   name: string;
   options: string[] | number[];
   width: string;
   theAction: Function;
 }) => {
-  const data = useSelector(signupState);
+  const signup_data = useSelector(signupState);
+  const search_tutor_data = useSelector(searchTutorState);
+  const search_housekeeper_data = useSelector(searchHousekeeperState);
+  const search_senior_caregiver_data = useSelector(searchSeniorCaregiverState);
   const dispatch = useAppDispatch();
   return (
     <>
@@ -24,7 +35,7 @@ export const DropDown = ({
             <h1
               className={`${width} text-left block text-sm opacity-85 font-medium`}
             >
-              {name}
+              {title}
             </h1>
             <button
               className={`${width}
@@ -56,12 +67,18 @@ export const DropDown = ({
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              {name === Casename.Province && data.province}
-              {name === Casename.age && data.age}
-              {name === Casename.careType && data.careType}
-              {name === Casename.education && data.education}
-              {name === Casename.subject && data.subject}
-              {name === Casename.school_year && data.school_year}
+              {name === Casename.Province && signup_data.province}
+              {name === Casename.age && signup_data.age}
+              {name === Casename.careType && signup_data.careType}
+              {name === Casename.education && signup_data.education}
+              {name === Casename.subject && signup_data.subject}
+              {name === Casename.school_year && signup_data.school_year}
+              {name === Casename.SearchProvinceTutor &&
+                search_tutor_data.province}
+              {name === Casename.SearchProvinceHousekeeper &&
+                search_housekeeper_data.province}
+              {name === Casename.SearchProvinceSeniorCaregiver &&
+                search_senior_caregiver_data.province}
               <svg
                 aria-hidden="true"
                 focusable="false"

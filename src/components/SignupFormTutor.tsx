@@ -37,6 +37,7 @@ export const SignupFormTutor = () => {
       <Radio />
       <div className="grid justify-items-center lg:justify-items-start lg:mx-10 lg:grid-cols-2 mt-6">
         <DropDown
+          title={Casename.subject}
           name={Casename.subject}
           options={[
             "Math",
@@ -51,6 +52,7 @@ export const SignupFormTutor = () => {
           lg:w-52"
         />
         <DropDown
+          title={Casename.school_year}
           name={Casename.school_year}
           options={["First", "Second", "Third", "Fourth", "Fifth"]}
           width="w-80

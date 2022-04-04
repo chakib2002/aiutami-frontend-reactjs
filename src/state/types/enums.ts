@@ -86,6 +86,9 @@ export enum Casename {
   education = "Education",
   subject = "Subject",
   school_year = "Class",
+  SearchProvinceTutor = "Search province",
+  SearchProvinceHousekeeper = "Search province housekeeper",
+  SearchProvinceSeniorCaregiver = "Search province senior caregiver",
 }
 
 export enum need {
