@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { HalfNavbar } from "../components/HalfNavbar";
+import { SearchCardFilterTutor } from "../components/SearchCardFilterTutor";
 import { SearchCardPersonalInfo } from "../components/SearchCardPersonalInfo";
 import { SearchCardProvince } from "../components/SearchCardProvince";
 import {
@@ -48,6 +49,7 @@ export const SearchPageTutor = () => {
           Job_descriptionAction={searchTutorJobDescription}
         />
       )}
+      {page_number === 3 && <SearchCardFilterTutor />}
     </div>
   );
 };

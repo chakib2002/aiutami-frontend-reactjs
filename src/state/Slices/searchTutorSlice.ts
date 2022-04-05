@@ -1,6 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { searchTutorInitialState } from "../initialStates";
-import { Need, signupProvince, textString } from "../types/interfaces";
+import {
+  Need,
+  signupClass,
+  signupLevel,
+  signupProvince,
+  signupSubjects,
+  textString,
+} from "../types/interfaces";
 
 export const SearchTutor = createSlice({
   name: "searchTutor",
@@ -27,6 +34,15 @@ export const SearchTutor = createSlice({
     searchTutorNeed: (state, { payload }: PayloadAction<Need>) => {
       state.need = payload.text;
     },
+    searchTutorLevel: (state, { payload }: PayloadAction<signupLevel>) => {
+      state.level = payload.text;
+    },
+    searchTutorSubject: (state, { payload }: PayloadAction<signupSubjects>) => {
+      state.subject = payload.text;
+    },
+    searchTutorSchoolYear: (state, { payload }: PayloadAction<signupClass>) => {
+      state.school_year = payload.text;
+    },
   },
 });
 
@@ -45,6 +61,9 @@ export const {
   searchTutorPhoneNumber,
   searchTutorJobDescription,
   searchTutorNeed,
+  searchTutorLevel,
+  searchTutorSubject,
+  searchTutorSchoolYear,
 } = SearchTutor.actions;
 
 export const { incrementPageNumberTutor, decrementPageNumberTutor } =

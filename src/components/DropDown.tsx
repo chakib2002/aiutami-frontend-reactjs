@@ -79,6 +79,9 @@ export const DropDown = ({
                 search_housekeeper_data.province}
               {name === Casename.SearchProvinceSeniorCaregiver &&
                 search_senior_caregiver_data.province}
+              {name === Casename.SearchSubject && search_tutor_data.subject}
+              {name === Casename.SearchSchoolYear &&
+                search_tutor_data.school_year}
               <svg
                 aria-hidden="true"
                 focusable="false"

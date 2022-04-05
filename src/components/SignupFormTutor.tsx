@@ -1,16 +1,17 @@
 import React from "react";
 import { DropDown } from "./DropDown";
 import { Input } from "./Input";
-import { Radio } from "./Radio";
+import { Levels } from "./Levels";
 import {
   Prev,
   SignupClass,
   SignupEducation,
+  SignupLevel,
   SignupSubject,
 } from "../state/Slices/authenticationSlices";
 import { useSelector } from "react-redux";
 import { signupState, useAppDispatch } from "../state/configureStore";
-import { Casename } from "../state/types/enums";
+import { Casename, level, LevelComponentUseCase } from "../state/types/enums";
 
 export const SignupFormTutor = () => {
   const dispatch = useAppDispatch();
@@ -34,8 +35,26 @@ export const SignupFormTutor = () => {
           state={education}
         />
       </div>
-      <Radio />
-      <div className="grid justify-items-center lg:justify-items-start lg:mx-10 lg:grid-cols-2 mt-6">
+      <Levels
+        name="Level"
+        type={LevelComponentUseCase.signup}
+        info={[
+          {
+            case: level.primary_school,
+            action: SignupLevel,
+          },
+          {
+            case: level.middle_school,
+            action: SignupLevel,
+          },
+          {
+            case: level.high_school,
+            action: SignupLevel,
+          },
+        ]}
+        width="lg:mx-10"
+      />
+      <div className="grid justify-items-center lg:grid-cols-2 lg:justify-items-start xl:flex lg:mx-10 xl:justify-between mt-6">
         <DropDown
           title={Casename.subject}
           name={Casename.subject}
@@ -60,14 +79,14 @@ export const SignupFormTutor = () => {
           theAction={SignupClass}
         />
       </div>
-      <div className="mt-10 only:lg:mt-20 mb-10 flex justify-center lg:justify-start mx-10 ">
+      <div className=" flex justify-center space-x-28 mt-7 lg:grid lg:grid-cols-2 md:grid-cols-3 lg:space-x-0 lg:mx-10">
         <button
           onClick={() => dispatch(Prev())}
           className=" mb-10 lg:mb-0 bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white text-sm font-medium h-10 w-24 rounded-lg active:scale-95 transition transition-duration-400 ease-out"
         >
           Previous
         </button>
-        <div className="w-full text-right">
+        <div className="xl:text-right">
           <button className=" text-center h-10 w-28 rounded-lg border-2 border-green bg-white hover:bg-green hover:text-white text-green active:scale-95 transition transition-duration-400 ease-out">
             Sign up
           </button>
