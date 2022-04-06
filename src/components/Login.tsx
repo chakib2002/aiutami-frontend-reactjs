@@ -38,7 +38,7 @@ export const Login = () => {
             </div>
           </div>
           <div className="text-center lg:text-left">
-            <div className="py-2 px-1 mb-2 bg-lightgray lg:w-80 lg:rounded-sm w-64 m-auto ">
+            <div className="py-2 px-1 lg:px-3 mb-2 bg-lightgray lg:w-80 lg:rounded-sm w-64 m-auto ">
               <EmailIcon />
               <input
                 type="email"
@@ -50,7 +50,7 @@ export const Login = () => {
               />
             </div>
 
-            <div className="py-2 px-1 mb-2 w-64 m-auto lg:w-80">
+            <div className="py-2 px-1 lg:px-3 mb-2 w-64 m-auto lg:w-80">
               <LockIcon />
               <input
                 type="password"
