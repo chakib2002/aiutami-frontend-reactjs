@@ -100,7 +100,7 @@ export const DropDown = ({
             </button>
             <ul
               className={`
-              
+              scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300  scrollbar-thumb-rounded-full scrollbar-track-rounded-full
               dropdown-menu
               min-w-max
               absolute

@@ -20,6 +20,10 @@ module.exports = {
     },
   },
   plugins: [
-    require('tw-elements/dist/plugin')
-  ]
+    require('tw-elements/dist/plugin'),
+    require('tailwind-scrollbar'),
+  ],
+  variants: {
+    scrollbar: ['rounded']
+}
 }

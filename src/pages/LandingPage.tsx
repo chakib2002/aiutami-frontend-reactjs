@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 export const LandingPage = () => {
   return (
-    <motion.div exit={{ opacity: 0.3 }}>
+    <motion.div exit={{ opacity: 0 }}>
       <NavBar firstname="" lastname="" link="" auth={false} />
       <Banner />
       <Cards />

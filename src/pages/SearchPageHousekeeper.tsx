@@ -22,7 +22,7 @@ export const SearchPageHousekeeper = () => {
   const page_number = useSelector(searchHousekeeperPageNumberState);
   const data = useSelector(searchHousekeeperState);
   return (
-    <motion.div exit={{ opacity: 0.3 }}>
+    <motion.div exit={{ opacity: 0 }}>
       <HalfNavbar />
       <div className="w-4/5 m-auto mt-10 cursor-default">
         <p className=" tracking-wide text-xl font-medium opacity-75">

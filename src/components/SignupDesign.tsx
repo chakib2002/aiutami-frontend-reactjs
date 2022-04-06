@@ -8,7 +8,7 @@ export const SignupDesign = () => {
       <Link to="/">
         <p
           className="text-left w-48 ml-10 mt-20 text-5xl font-extrabold text-secondary 
-        hover:text-bluedark cursor-pointer transition transition-duration-600 ease-out hover:animate-none active:scale-95 animate-bounce"
+        hover:text-bluedark cursor-pointer transition transition-duration-600 ease-out hover:animate-none active:scale-95"
         >
           Aiutami
         </p>

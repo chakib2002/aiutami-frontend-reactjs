@@ -9,16 +9,23 @@ import {
   SigninEmail,
   SigninPassword,
 } from "../state/Slices/authenticationSlices";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const Login = () => {
   const dispatch = useDispatch();
 
   return (
-    <>
+    <AnimatePresence exitBeforeEnter>
       <NavBarLogin />
       <div className="grid grid-flow-col">
         <Office />
-        <div className="mt-10 lg:m-auto lg:ml-44 mx-5 md:mx-10">
+        <motion.div
+          key="login"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="mt-10 lg:m-auto lg:ml-44 mx-5 md:mx-10"
+        >
           <div className="mb-5 text-center lg:text-left ">
             <h1 className="text-2xl font-light tracking-wide lg:ml-2">
               Welcome Back :)
@@ -70,8 +77,8 @@ export const Login = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </>
+    </AnimatePresence>
   );
 };

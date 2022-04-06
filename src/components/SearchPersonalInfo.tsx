@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { care_type } from "../state/types/enums";
 import {
@@ -27,40 +28,48 @@ export const SearchPersonalInfo = ({
   next: Function;
 }) => {
   return (
-    <div className="mx-5">
-      <div className="md:flex md:justify-between mt-10">
-        <Input
-          name="Full Name"
-          type="text"
-          htmlFor="fullnamehousekeepersearch"
-          width="w-full md:w-64 lg:w-80"
-          handleChanges={FullNameAction}
-          state={data.fullname}
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        key="personal_info"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="mx-5"
+      >
+        <div className="md:flex md:justify-between mt-10">
+          <Input
+            name="Full Name"
+            type="text"
+            htmlFor="fullnamehousekeepersearch"
+            width="w-full md:w-64 lg:w-80"
+            handleChanges={FullNameAction}
+            state={data.fullname}
+          />
+          <Input
+            name="Phone number"
+            type="text"
+            htmlFor="PhoneNumberhousekeepersearch"
+            width="w-full md:w-64 lg:w-80"
+            handleChanges={PhoneNumberAction}
+            state={data.phoneNumber}
+          />
+        </div>
+        <Text
+          action={JobDescriptionAction}
+          width="w-full"
+          state={data.job_description}
+          name="Job description"
+          message="Make sure to describe well the job for the person you are willing to hire here please specify all the details ."
         />
-        <Input
-          name="Phone number"
-          type="text"
-          htmlFor="PhoneNumberhousekeepersearch"
-          width="w-full md:w-64 lg:w-80"
-          handleChanges={PhoneNumberAction}
-          state={data.phoneNumber}
-        />
-      </div>
-      <Text
-        action={JobDescriptionAction}
-        width="w-full"
-        state={data.job_description}
-        name="Job description"
-        message="Make sure to describe well the job for the person you are willing to hire here please specify all the details ."
-      />
-      <div className="flex justify-between my-5">
-        <Previous action={previous} />
-        {data.careType === care_type.housekeeper ? (
-          <Submit title="Search" />
-        ) : (
-          <Next action={next} />
-        )}
-      </div>
-    </div>
+        <div className="flex justify-between my-5">
+          <Previous action={previous} />
+          {data.careType === care_type.housekeeper ? (
+            <Submit title="Search" />
+          ) : (
+            <Next action={next} />
+          )}
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
