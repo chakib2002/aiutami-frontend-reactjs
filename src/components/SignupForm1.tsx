@@ -20,6 +20,7 @@ import { signupState, useAppDispatch } from "../state/configureStore";
 import { Next } from "../state/Slices/authenticationSlices";
 import { InvalidInput } from "./InvalidInput";
 import { AnimatePresence, motion } from "framer-motion";
+import { NavBarLogin } from "./NavBarLogin";
 
 export const SignupForm1 = () => {
   const dispatch = useAppDispatch();
@@ -71,6 +72,9 @@ export const SignupForm1 = () => {
 
   return (
     <AnimatePresence exitBeforeEnter>
+      <div className="lg:hidden">
+        <NavBarLogin />
+      </div>
       <div className="mt-10">
         <h1 className="text-3xl font-extrabold cursor-default">Sign up</h1>
         <p className="w-[70%] mx-auto mt-2 mb-10 opacity-50 tracking-widest border-b-2 border-lightgray pb-3 cursor-default">

@@ -12,12 +12,16 @@ import {
 } from "../state/Slices/authenticationSlices";
 import { useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
+import { NavBarLogin } from "./NavBarLogin";
 
 export const SignupFormSeniorcare = () => {
   const data = useSelector(signupState);
   const dispatch = useAppDispatch();
   return (
     <AnimatePresence exitBeforeEnter>
+      <div className="lg:hidden">
+        <NavBarLogin />
+      </div>
       <div className="mt-10">
         <h1 className="text-3xl font-extrabold cursor-default lg:text-left lg:mx-10">
           Sign up

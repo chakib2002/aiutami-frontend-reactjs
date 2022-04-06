@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import { signupState, useAppDispatch } from "../state/configureStore";
 import { Casename, level, LevelComponentUseCase } from "../state/types/enums";
 import { AnimatePresence, motion } from "framer-motion";
+import { NavBarLogin } from "./NavBarLogin";
 
 export const SignupFormTutor = () => {
   const dispatch = useAppDispatch();
@@ -20,6 +21,9 @@ export const SignupFormTutor = () => {
   const { education } = data;
   return (
     <AnimatePresence exitBeforeEnter>
+      <div className="lg:hidden">
+        <NavBarLogin />
+      </div>
       <div className="mt-10">
         <h1 className="text-3xl font-extrabold cursor-default lg:text-left lg:mx-10">
           Sign up
