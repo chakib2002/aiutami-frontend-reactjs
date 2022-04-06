@@ -73,7 +73,7 @@ export const SignupFormSeniorcare = () => {
               },
             ]}
           />
-          <div className="mt-10 only:lg:mt-20 mb-10 flex justify-center lg:justify-start mx-10 ">
+          <div className="mt-10 only:lg:mt-20 mb-10 flex justify-center lg:justify-start mx-5 ">
             <button
               onClick={() => dispatch(Prev())}
               className=" mb-10 lg:mb-0 bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white text-sm font-medium h-10 w-24 rounded-lg  active:scale-95 transition transition-duration-400 ease-out"

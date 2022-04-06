@@ -16,6 +16,7 @@ export const TextArea = ({ state }: { state: string }) => {
         </label>
         <textarea
           className="
+          h-36
           block
           w-full
           px-3

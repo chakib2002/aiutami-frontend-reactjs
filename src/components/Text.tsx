@@ -26,7 +26,7 @@ export const Text = ({
         className={`
         ${width} 
         px-5 py-2 border-2 border-lightgray shadow-md rounded 
-        focus:outline-none `}
+        focus:outline-none h-36 `}
         id="textAreaExample1"
         rows={4}
         placeholder={message}

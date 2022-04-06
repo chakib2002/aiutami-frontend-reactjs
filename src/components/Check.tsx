@@ -9,12 +9,12 @@ export const Check = ({
 }) => {
   const dispatch = useAppDispatch();
   return (
-    <div className="grid md:grid-cols-3 lg:grid-cols-2 mx-7 md:mx-7">
+    <div className="grid md:grid-cols-3 lg:grid-cols-2 mx-3 ">
       {checkCard.map((element, index) => {
         return (
           <div
             key={index}
-            className="text-left text-gray-700 hover:text-gray-900 cursor-pointer my-2 mx-3"
+            className="text-left text-gray-700 hover:text-gray-900 cursor-pointer my-2 mx-2"
           >
             <p className="text-md font-medium mb-1 text-gray-900">
               {element.title}

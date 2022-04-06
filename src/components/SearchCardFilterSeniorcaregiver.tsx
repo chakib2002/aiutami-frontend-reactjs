@@ -14,7 +14,7 @@ export const SearchCardFilterSeniorcaregiver = () => {
       />
 
       <SearchFilterSeniorcaregiver />
-      <div className="m-auto mx-10  flex justify-between my-5 ">
+      <div className="mx-5 flex justify-between my-5 ">
         <Previous action={decrementPageNumberSeniorCaregiver} />
         <Submit title="Search" />
       </div>
