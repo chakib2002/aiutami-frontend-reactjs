@@ -38,24 +38,24 @@ export const Login = () => {
             </div>
           </div>
           <div className="text-center lg:text-left">
-            <div className="py-2 px-3 mb-2 bg-lightgray lg:w-80 lg:rounded-sm w-72 m-auto ">
+            <div className="py-2 px-1 mb-2 bg-lightgray lg:w-80 lg:rounded-sm w-64 m-auto ">
               <EmailIcon />
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="focus:outline-none ml-2 bg-lightgray"
+                className="focus:outline-none ml-2 w-48 bg-lightgray"
                 onChange={(e) =>
                   dispatch(SigninEmail({ text: e.target.value }))
                 }
               />
             </div>
 
-            <div className="py-2 px-3 mb-2 w-72 m-auto lg:w-80">
+            <div className="py-2 px-1 mb-2 w-64 m-auto lg:w-80">
               <LockIcon />
               <input
                 type="password"
                 placeholder="Enter your password"
-                className="focus:outline-none ml-2"
+                className="focus:outline-none w-48 ml-2"
                 onChange={(e) =>
                   dispatch(SigninPassword({ text: e.target.value }))
                 }
