@@ -1,9 +1,19 @@
 import React from "react";
-import { useAppDispatch } from "../state/configureStore";
+import { signupState, useAppDispatch } from "../state/configureStore";
 import { Check } from "./Check";
-import { Prev } from "../state/Slices/authenticationSlices";
+import {
+  Prev,
+  SignupCompanionship,
+  SignupHouseHoldTasks,
+  SignupMobilityAssisstance,
+  SignupPersonalCare,
+  SignupSpecializedCare,
+  SignupTransportation,
+} from "../state/Slices/authenticationSlices";
+import { useSelector } from "react-redux";
 
 export const SignupFormSeniorcare = () => {
+  const data = useSelector(signupState);
   const dispatch = useAppDispatch();
   return (
     <div className="mt-10">
@@ -13,7 +23,48 @@ export const SignupFormSeniorcare = () => {
       <p className=" lg:text-left lg:mx-10 w-[70%] mx-auto mt-2 mb-10 opacity-50 tracking-widest border-b-2 border-lightgray pb-3 cursor-default">
         Get started for free and become a full-time or a part-time freelancer.
       </p>
-      <Check />
+      <Check
+        checkCard={[
+          {
+            title: "Transportation",
+            description: " Provide transportation to your Client",
+            action: SignupTransportation,
+            state: data.transportation,
+          },
+          {
+            title: "House hold tasks",
+            description: "Perpare meal, take care of the house",
+            action: SignupHouseHoldTasks,
+            state: data.house_hold_tasks,
+          },
+          {
+            title: "Personal care",
+            description:
+              "Provide personal help to your client like shower, clothings ext.",
+            action: SignupPersonalCare,
+            state: data.personal_care,
+          },
+          {
+            title: "Specialized care",
+            description: "Experience with different types of diseases",
+            action: SignupSpecializedCare,
+            state: data.specialized_care,
+          },
+          {
+            title: "Mobility assisstance",
+            description: "provide physical help to your client",
+            action: SignupMobilityAssisstance,
+            state: data.mobility_assistance,
+          },
+          {
+            title: "Companionship",
+            description:
+              "Provide company and be able to talk and enjoy time with your client",
+            action: SignupCompanionship,
+            state: data.companionship,
+          },
+        ]}
+      />
       <div className="mt-10 only:lg:mt-20 mb-10 flex justify-center lg:justify-start mx-10 ">
         <button
           onClick={() => dispatch(Prev())}

@@ -16,12 +16,13 @@ import {
 } from "../state/Slices/searchHousekeeperSlice";
 import { decrementPageNumberHousekeeper } from "../state/Slices/searchHousekeeperSlice";
 import { Casename } from "../state/types/enums";
+import { motion } from "framer-motion";
 
 export const SearchPageHousekeeper = () => {
   const page_number = useSelector(searchHousekeeperPageNumberState);
   const data = useSelector(searchHousekeeperState);
   return (
-    <div>
+    <motion.div exit={{ opacity: 0.3 }}>
       <HalfNavbar />
       <div className="w-4/5 m-auto mt-10 cursor-default">
         <p className=" tracking-wide text-xl font-medium opacity-75">
@@ -48,6 +49,6 @@ export const SearchPageHousekeeper = () => {
           Job_descriptionAction={searchHousekeeperJobDescription}
         />
       )}
-    </div>
+    </motion.div>
   );
 };

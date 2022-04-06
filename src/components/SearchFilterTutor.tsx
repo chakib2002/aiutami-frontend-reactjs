@@ -1,7 +1,6 @@
 import React from "react";
 import {
   decrementPageNumberTutor,
-  incrementPageNumberTutor,
   searchTutorLevel,
   searchTutorSchoolYear,
   searchTutorSubject,
@@ -9,8 +8,8 @@ import {
 import { Casename, level, LevelComponentUseCase } from "../state/types/enums";
 import { DropDown } from "./DropDown";
 import { Levels } from "./Levels";
-import { Next } from "./Next";
 import { Previous } from "./Previous";
+import { Submit } from "./Submit";
 
 export const SearchFilterTutor = () => {
   return (
@@ -62,7 +61,7 @@ export const SearchFilterTutor = () => {
       </div>
       <div className="m-auto lg:mx-5  flex justify-center space-x-32 lg:justify-between my-5 mb-10">
         <Previous action={decrementPageNumberTutor} />
-        <Next action={incrementPageNumberTutor} />
+        <Submit title="Search" />
       </div>
     </div>
   );

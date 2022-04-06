@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { searchTutorInitialState } from "../initialStates";
 import {
-  Need,
   signupClass,
   signupLevel,
   signupProvince,
@@ -31,9 +30,6 @@ export const SearchTutor = createSlice({
     ) => {
       state.job_description = payload.text;
     },
-    searchTutorNeed: (state, { payload }: PayloadAction<Need>) => {
-      state.need = payload.text;
-    },
     searchTutorLevel: (state, { payload }: PayloadAction<signupLevel>) => {
       state.level = payload.text;
     },
@@ -60,7 +56,6 @@ export const {
   searchTutorFullName,
   searchTutorPhoneNumber,
   searchTutorJobDescription,
-  searchTutorNeed,
   searchTutorLevel,
   searchTutorSubject,
   searchTutorSchoolYear,

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { searchHousekeeperInitialState } from "../initialStates";
-import { Need, signupProvince, textString } from "../types/interfaces";
+import { signupProvince, textString } from "../types/interfaces";
 
 export const SearchHousekeeper = createSlice({
   name: "searchHousekeeper",
@@ -30,9 +30,6 @@ export const SearchHousekeeper = createSlice({
     ) => {
       state.job_description = payload.text;
     },
-    searchHousekeeperNeed: (state, { payload }: PayloadAction<Need>) => {
-      state.need = payload.text;
-    },
   },
 });
 
@@ -50,7 +47,6 @@ export const {
   searchHousekeeperFullname,
   searchHousekeeperPhoneNumber,
   searchHousekeeperJobDescription,
-  searchHousekeeperNeed,
 } = SearchHousekeeper.actions;
 export const {
   incrementPageNumberHousekeeper,

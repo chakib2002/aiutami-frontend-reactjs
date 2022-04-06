@@ -1,10 +1,11 @@
-import React from 'react'
-import { Login } from '../components/Login'
+import React from "react";
+import { Login } from "../components/Login";
+import { motion } from "framer-motion";
 
 export const LoginPage = () => {
   return (
-    <div>
-        <Login/>
-    </div>
-  )
-}
+    <motion.div exit={{ opacity: 0.3 }}>
+      <Login />
+    </motion.div>
+  );
+};

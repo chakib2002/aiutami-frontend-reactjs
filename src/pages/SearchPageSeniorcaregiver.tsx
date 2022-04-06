@@ -16,13 +16,15 @@ import {
   searchSeniorCaregiverPhoneNumber,
   searchSeniorcaregiverProvince,
 } from "../state/Slices/searchSeniorCaregiverSlice";
+import { SearchCardFilterSeniorcaregiver } from "../components/SearchCardFilterSeniorcaregiver";
+import { motion } from "framer-motion";
 
 export const SearchPageSeniorcaregiver = () => {
   const page_number = useSelector(searchSeniorCaregiverPageNumberState);
   const data = useSelector(searchSeniorCaregiverState);
 
   return (
-    <div>
+    <motion.div exit={{ opacity: 0.3 }}>
       <HalfNavbar />
       <div className="w-4/5 m-auto mt-10 cursor-default">
         <p className=" tracking-wide text-xl font-medium opacity-75">
@@ -49,6 +51,7 @@ export const SearchPageSeniorcaregiver = () => {
           Job_descriptionAction={searchSeniorCaregiverJobDescription}
         />
       )}
-    </div>
+      {page_number === 3 && <SearchCardFilterSeniorcaregiver />}
+    </motion.div>
   );
 };

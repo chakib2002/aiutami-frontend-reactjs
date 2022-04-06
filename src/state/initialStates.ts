@@ -48,7 +48,6 @@ export const searchTutorInitialState: SearchTutor = {
   level: null,
   subject: null,
   school_year: null,
-  need: null,
 };
 
 export const searchHousekeeperInitialState: SearchHousekeeper = {
@@ -57,7 +56,6 @@ export const searchHousekeeperInitialState: SearchHousekeeper = {
   fullname: "",
   phoneNumber: "",
   job_description: "",
-  need: null,
 };
 
 export const searchSeniorCaregiverInitialState: SearchSeniorCaregiver = {
@@ -72,5 +70,4 @@ export const searchSeniorCaregiverInitialState: SearchSeniorCaregiver = {
   mobility_assistance: false,
   specialized_care: false,
   companionship: false,
-  need: null,
 };

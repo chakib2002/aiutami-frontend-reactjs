@@ -14,7 +14,9 @@ export const PriceRange = () => {
         className="form-label m-auto text-left block text-md opacity-100 font-medium "
       >
         Price{" "}
-        <span className="text-lg opacity-60">{data.price + "$ per hour"}</span>
+        <span className="text-sm opacity-60 mx-1">
+          {data.price + "$ per hour"}
+        </span>
       </label>
       <input
         type="range"

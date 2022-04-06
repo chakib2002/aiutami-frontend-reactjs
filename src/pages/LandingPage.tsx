@@ -5,16 +5,17 @@ import { Footer } from "../components/Footer";
 import { LargeCards } from "../components/LargeCards";
 import { NavBar } from "../components/Navbar";
 import { Section } from "../components/Section";
+import { motion } from "framer-motion";
 
 export const LandingPage = () => {
   return (
-    <div>
+    <motion.div exit={{ opacity: 0.3 }}>
       <NavBar firstname="" lastname="" link="" auth={false} />
       <Banner />
       <Cards />
       <LargeCards />
       <Section />
       <Footer />
-    </div>
+    </motion.div>
   );
 };

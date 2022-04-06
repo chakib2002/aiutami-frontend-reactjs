@@ -1,11 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { searchSeniorCaregiverInitialState } from "../initialStates";
-import {
-  Need,
-  signupProvince,
-  textBool,
-  textString,
-} from "../types/interfaces";
+import { signupProvince, textBool, textString } from "../types/interfaces";
 
 export const SearchSeniorCaregiver = createSlice({
   name: "searchSeniorCaregiver",
@@ -71,9 +66,6 @@ export const SearchSeniorCaregiver = createSlice({
     ) => {
       state.companionship = payload.text;
     },
-    searchSeniorCaregiverNeed: (state, { payload }: PayloadAction<Need>) => {
-      state.need = payload.text;
-    },
   },
 });
 
@@ -97,7 +89,6 @@ export const {
   searchSeniorCaregiverMobilityAssistance,
   searchSeniorCaregiverSpecializedCare,
   searchSeniorCaregiverCompanionship,
-  searchSeniorCaregiverNeed,
 } = SearchSeniorCaregiver.actions;
 
 export const {

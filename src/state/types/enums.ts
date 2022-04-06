@@ -93,12 +93,6 @@ export enum Casename {
   SearchSchoolYear = "search school year",
 }
 
-export enum need {
-  right_now = "Right Now",
-  with_in_week = "With in a week",
-  with_in_mounth = "With in a mounth",
-}
-
 export enum LevelComponentUseCase {
   signup = "Sign up Radio",
   search = "Search radio",

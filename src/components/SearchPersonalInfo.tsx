@@ -1,4 +1,5 @@
 import React from "react";
+import { care_type } from "../state/types/enums";
 import {
   SearchHousekeeper,
   SearchSeniorCaregiver,
@@ -7,6 +8,7 @@ import {
 import { Input } from "./Input";
 import { Next } from "./Next";
 import { Previous } from "./Previous";
+import { Submit } from "./Submit";
 import { Text } from "./Text";
 
 export const SearchPersonalInfo = ({
@@ -53,7 +55,11 @@ export const SearchPersonalInfo = ({
       />
       <div className="flex justify-between my-5">
         <Previous action={previous} />
-        <Next action={next} />
+        {data.careType === care_type.housekeeper ? (
+          <Submit title="Search" />
+        ) : (
+          <Next action={next} />
+        )}
       </div>
     </div>
   );

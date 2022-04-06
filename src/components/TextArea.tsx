@@ -16,7 +16,6 @@ export const TextArea = ({ state }: { state: string }) => {
         </label>
         <textarea
           className="
-          form-control
           block
           w-full
           px-3
@@ -31,7 +30,7 @@ export const TextArea = ({ state }: { state: string }) => {
           transition
           ease-in-out
           m-0
-        focus:text-dark focus:opacity-100 focus:bg-white focus:border-none focus:outline-none
+        focus:text-dark focus:opacity-100 focus:bg-white focus:border-gray-400 focus:outline-none
         "
           id="exampleFormControlTextarea1"
           rows={3}

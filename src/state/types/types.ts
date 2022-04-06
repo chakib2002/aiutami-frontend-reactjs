@@ -1,7 +1,6 @@
 import {
   care_type,
   level,
-  need,
   province,
   school_year_highschool,
   school_year_primary,
@@ -57,7 +56,6 @@ export type SearchTutor = {
     | school_year_primary
     | school_year_secondary
     | null;
-  need: need | null;
 };
 
 export type SearchHousekeeper = {
@@ -66,7 +64,6 @@ export type SearchHousekeeper = {
   fullname: string;
   phoneNumber: string;
   job_description: string;
-  need: need | null;
 };
 
 export type SearchSeniorCaregiver = {
@@ -81,5 +78,11 @@ export type SearchSeniorCaregiver = {
   mobility_assistance: boolean;
   specialized_care: boolean;
   companionship: boolean;
-  need: need | null;
+};
+
+export type checkComponentDetails = {
+  title: string;
+  description: string;
+  action: Function;
+  state: boolean;
 };
