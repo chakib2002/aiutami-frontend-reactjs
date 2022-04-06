@@ -38,7 +38,7 @@ export const SearchFilterTutor = () => {
             },
           ]}
           type={LevelComponentUseCase.search}
-          width="lg:mx-5"
+          width="lg:mx-5 "
         />
 
         <div className="mx-5 my-2 lg:flex lg:justify-between">
@@ -54,19 +54,19 @@ export const SearchFilterTutor = () => {
               "Computer science",
             ]}
             theAction={searchTutorSubject}
-            width="w-80
+            width="w-60
           lg:w-52"
           />
           <DropDown
             title={Casename.school_year}
             name={Casename.SearchSchoolYear}
             options={["First", "Second", "Third", "Fourth", "Fifth"]}
-            width="w-80
+            width="w-60
           lg:w-52"
             theAction={searchTutorSchoolYear}
           />
         </div>
-        <div className="m-auto lg:mx-5  flex justify-center space-x-32 lg:justify-between my-5 mb-10">
+        <div className="mx-5 flex justify-between mb-5">
           <Previous action={decrementPageNumberTutor} />
           <Submit title="Search" />
         </div>

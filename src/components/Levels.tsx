@@ -41,7 +41,7 @@ export const Levels = ({
   return (
     <div className="">
       <p
-        className={`m-auto text-left block text-sm opacity-85 font-medium w-80 mb-1 ${width}`}
+        className={`m-auto text-left block text-sm opacity-85 font-medium w-60 mb-1 ${width}`}
       >
         {name}
       </p>
@@ -60,7 +60,7 @@ export const Levels = ({
               className={`${
                 type === LevelComponentUseCase.signup
                   ? "form-check px-5 py-1 border border-gray-300 shadow-md rounded-md w-80 lg:w-52 text-left mb-2"
-                  : "form-check px-5 py-1 border border-gray-300 shadow-md rounded-md w-80 lg:w-64 text-left mb-2"
+                  : "form-check px-5 py-1 border border-gray-300 shadow-md rounded-md w-60 lg:w-64 text-left mb-2"
               }`}
             >
               <input
