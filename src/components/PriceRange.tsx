@@ -8,7 +8,7 @@ export const PriceRange = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="relative pt-1 text-left w-auto mx-10 lg:w-1/2">
+    <div className="relative pt-1 text-left w-auto mx-5 lg:w-1/2">
       <label
         htmlFor="customRange1"
         className="form-label m-auto text-left block text-md opacity-100 font-medium "

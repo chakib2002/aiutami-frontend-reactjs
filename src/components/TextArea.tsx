@@ -6,8 +6,8 @@ export const TextArea = ({ state }: { state: string }) => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="flex justify-center lg:justify-start lg:mx-10">
-      <div className="mb-3 w-full mx-10 lg:mx-0 text-left">
+    <div className="flex justify-center lg:justify-start lg:mx-5">
+      <div className="mb-3 w-full mx-5  lg:mx-0 text-left">
         <label
           htmlFor="exampleFormControlTextarea1"
           className="form-label m-auto text-left block text-md opacity-100 font-medium mt-2"
