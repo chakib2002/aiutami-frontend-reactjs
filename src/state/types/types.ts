@@ -86,3 +86,8 @@ export type checkComponentDetails = {
   action: Function;
   state: boolean;
 };
+
+export type Results = {
+  searchResultsType: care_type | null;
+  results: {}[] | null;
+};

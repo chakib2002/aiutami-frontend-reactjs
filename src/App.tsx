@@ -7,6 +7,8 @@ import { SearchPageSeniorcaregiver } from "./pages/SearchPageSeniorcaregiver";
 import { SearchPageTutor } from "./pages/SearchPageTutor";
 import SignupPage from "./pages/SignupPage";
 import { AnimatePresence } from "framer-motion";
+import { ProtectedResults } from "./pages/ProtectedResults";
+import { ResultPage } from "./pages/ResultPage";
 
 function App() {
   const location = useLocation();
@@ -22,6 +24,9 @@ function App() {
           path="/search/seniorcaregiver"
           element={<SearchPageSeniorcaregiver />}
         />
+        <Route element={<ProtectedResults />}>
+          <Route path="Results" element={<ResultPage />} />
+        </Route>
       </Routes>
     </AnimatePresence>
   );

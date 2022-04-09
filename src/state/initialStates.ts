@@ -1,10 +1,16 @@
-import { care_type } from "./types/enums";
+import {
+  care_type,
+  level,
+  school_year_highschool,
+  subject,
+} from "./types/enums";
 import {
   SearchHousekeeper,
   SearchSeniorCaregiver,
   SearchTutor,
   signin,
   signup,
+  Results,
 } from "./types/types";
 
 export const signinInitialState: signin = {
@@ -45,9 +51,9 @@ export const searchTutorInitialState: SearchTutor = {
   fullname: "",
   phoneNumber: "",
   job_description: "",
-  level: null,
-  subject: null,
-  school_year: null,
+  level: level.high_school,
+  subject: subject.math,
+  school_year: school_year_highschool.Second,
 };
 
 export const searchHousekeeperInitialState: SearchHousekeeper = {
@@ -70,4 +76,13 @@ export const searchSeniorCaregiverInitialState: SearchSeniorCaregiver = {
   mobility_assistance: false,
   specialized_care: false,
   companionship: false,
+};
+
+export const SearchResult: Results = {
+  searchResultsType: care_type.seniorcaregiver,
+  results: [
+    {
+      name: "chakib",
+    },
+  ],
 };

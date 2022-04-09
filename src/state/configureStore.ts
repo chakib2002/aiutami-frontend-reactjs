@@ -14,6 +14,7 @@ import {
   SearchSeniorCaregiver,
   SearchSeniorCaregiverPageNumber,
 } from "./Slices/searchSeniorCaregiverSlice";
+import { Result } from "./Slices/ResultSlice";
 
 export const store = configureStore({
   reducer: {
@@ -27,6 +28,7 @@ export const store = configureStore({
     search_senior_caregiver: SearchSeniorCaregiver.reducer,
     search_senior_caregiver_page_number:
       SearchSeniorCaregiverPageNumber.reducer,
+    results_of_search: Result.reducer,
   },
 });
 
@@ -50,6 +52,8 @@ export const searchSeniorCaregiverState = (state: RootState) =>
   state.search_senior_caregiver;
 export const searchSeniorCaregiverPageNumberState = (state: RootState) =>
   state.search_senior_caregiver_page_number;
+
+export const ResultState = (state: RootState) => state.results_of_search;
 
 export const useAppDispatch = () => useDispatch<AppDispatch>(); // Export a hook that can be reused to resolve types
 

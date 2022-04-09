@@ -97,3 +97,9 @@ export enum LevelComponentUseCase {
   signup = "Sign up Radio",
   search = "Search radio",
 }
+
+export enum Redirects {
+  searchTutorRoute = "/search/tutor",
+  searchHousekeeperRoute = "/search/housekeeper",
+  searchSeniorCaregiverRoute = "/search/seniorcaregiver",
+}
