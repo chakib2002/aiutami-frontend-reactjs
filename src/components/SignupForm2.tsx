@@ -45,7 +45,7 @@ export const SignupForm2 = () => {
           <Availability />
 
           {careType === care_type.housekeeper ? (
-            <div className="mt-10 mb-10 flex justify-center lg:justify-start mx-10 ">
+            <div className="mt-10 mb-10 flex justify-center lg:justify-start mx-5 ">
               <button
                 onClick={() => dispatch(Prev())}
                 className=" mb-10 lg:mb-0 bg-white text-primary border-2 border-primary text-sm font-medium h-10 w-24 rounded-lg hover:bg-primary hover:text-white active:scale-95 transition transition-duration-400 ease-out"
@@ -59,7 +59,7 @@ export const SignupForm2 = () => {
               </div>
             </div>
           ) : (
-            <div className="mt-10 mb-10 flex justify-center lg:justify-start mx-10 ">
+            <div className="mt-10 mb-10 flex justify-center lg:justify-start mx-5 ">
               <div className="w-full text-left">
                 <button
                   onClick={() => dispatch(Prev())}

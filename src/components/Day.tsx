@@ -20,8 +20,8 @@ export const Day = ({ day }: { day: string }) => {
         }
       }}
       className={`w-32 mx-1 text-sm outline-none font-medium my-2 
-      hover:text-secondary hover:bg-primary hover:border-primary active:scale-95
-      border border-opacity-50  hover:opacity-100 hover:border-opacity-100 
+      lg:hover:text-secondary lg:hover:bg-primary lg:hover:border-primary active:scale-95
+      border border-opacity-50  lg:hover:opacity-100 lg:hover:border-opacity-100 
       px-5 py-2 rounded-full transition transition-duration-600 ease-out 
       ${
         data.availability.includes(day)

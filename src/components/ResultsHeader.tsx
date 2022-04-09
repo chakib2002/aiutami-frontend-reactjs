@@ -30,7 +30,9 @@ export const ResultsHeader = () => {
       {searchResultsType !== care_type.housekeeper && (
         <div
           className={`${
-            searchResultsType === care_type.tutor ? "mx-5 sm:mx-7" : "mx-10"
+            searchResultsType === care_type.tutor
+              ? "mx-5 sm:mx-7"
+              : "mx-5 sm:mx-8 lg:mx-10"
           }`}
         >
           <ResultsHeaderOptions />
