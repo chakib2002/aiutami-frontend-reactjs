@@ -20,8 +20,8 @@ export const ResultsHeaderCategory = ({
       }}
       className={`${
         title === searchResultsType
-          ? "text-dark border-b-2 text-sm md:text-base font-semibold pr-6 lg:pr-12  py-2 mx-2 cursor-default"
-          : "text-dark opacity-70 text-sm md:text-base font-normal  active:scale-95 transition transition-duration-400 ease-out lg:px-5 px-3 py-2 hover:bg-gray-300 hover:rounded-full cursor-pointer  "
+          ? "text-dark border-b-2 text-sm md:text-base font-semibold pr-6 lg:pr-12 py-1 mx-2 cursor-default"
+          : "text-dark opacity-70 text-sm md:text-base font-normal  active:scale-95  transition transition-duration-400 ease-out lg:px-5 px-4 py-2 hover:bg-gray-300 hover:rounded-full cursor-pointer  "
       }`}
     >
       {title}

@@ -89,5 +89,27 @@ export type checkComponentDetails = {
 
 export type Results = {
   searchResultsType: care_type | null;
-  results: {}[] | null;
+  results: {
+    id:number,
+    firstname : string,
+    lastname : string,
+    age:number,
+    email : string,
+    care_type : string,
+    occupation : string,
+    province: string,
+    pricing : number,
+    about_me : string,
+    availability : JSON,
+    level?: string,
+    subject?: string,
+    school_year?: string,
+    education? : string,
+    transportation?: boolean,
+    house_hold_tasks?: boolean,
+    personal_care?: boolean,
+    mobility_assistance?: boolean,
+    specialized_care?: boolean,
+    companionship?: boolean,
+  }[]  | null
 };

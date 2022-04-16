@@ -1,8 +1,5 @@
 import {
   care_type,
-  level,
-  school_year_highschool,
-  subject,
 } from "./types/enums";
 import {
   SearchHousekeeper,
@@ -51,9 +48,9 @@ export const searchTutorInitialState: SearchTutor = {
   fullname: "",
   phoneNumber: "",
   job_description: "",
-  level: level.high_school,
-  subject: subject.math,
-  school_year: school_year_highschool.Second,
+  level: null,
+  subject: null,
+  school_year: null,
 };
 
 export const searchHousekeeperInitialState: SearchHousekeeper = {
@@ -79,10 +76,6 @@ export const searchSeniorCaregiverInitialState: SearchSeniorCaregiver = {
 };
 
 export const SearchResult: Results = {
-  searchResultsType: care_type.seniorcaregiver,
-  results: [
-    {
-      name: "chakib",
-    },
-  ],
+  searchResultsType: null,
+  results: null
 };

@@ -24,8 +24,6 @@ export const Levels = ({
   const dataSearch = useSelector(searchTutorState);
 
   const check = (argument: level, Data: level | null) => {
-    console.log(argument);
-    console.log(Data);
     switch (argument) {
       case level.primary_school:
         return Data === level.primary_school ? true : false;

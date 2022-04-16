@@ -8,7 +8,7 @@ export const ProtectedResults = () => {
   const location = useLocation();
   return (
     <div>
-      {data.searchResultsType !== null && data.results !== null ? (
+      {data.searchResultsType !== null && data.results?.length !== null ? (
         <Outlet />
       ) : (
         <Navigate to={"/"} state={{ from: location }} replace />

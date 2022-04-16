@@ -6,7 +6,7 @@ import {
   searchTutorSchoolYear,
   searchTutorSubject,
 } from "../state/Slices/searchTutorSlice";
-import { Casename, level, LevelComponentUseCase } from "../state/types/enums";
+import { Casename, level, LevelComponentUseCase, Submit_type } from "../state/types/enums";
 import { DropDown } from "./DropDown";
 import { Levels } from "./Levels";
 import { Previous } from "./Previous";
@@ -68,7 +68,7 @@ export const SearchFilterTutor = () => {
         </div>
         <div className="mx-5 flex justify-between mb-5">
           <Previous action={decrementPageNumberTutor} />
-          <Submit title="Search" />
+          <Submit title="Search" type={Submit_type.tutor} />
         </div>
       </motion.div>
     </AnimatePresence>

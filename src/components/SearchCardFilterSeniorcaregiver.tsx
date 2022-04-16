@@ -1,5 +1,6 @@
 import React from "react";
 import { decrementPageNumberSeniorCaregiver } from "../state/Slices/searchSeniorCaregiverSlice";
+import { Submit_type } from "../state/types/enums";
 import { Previous } from "./Previous";
 import { SearchFilterSeniorcaregiver } from "./SearchFilterSeniorcaregiver";
 import { SearchHeader } from "./SearchHeader";
@@ -16,7 +17,7 @@ export const SearchCardFilterSeniorcaregiver = () => {
       <SearchFilterSeniorcaregiver />
       <div className="mx-5 flex justify-between my-5 ">
         <Previous action={decrementPageNumberSeniorCaregiver} />
-        <Submit title="Search" />
+        <Submit title="Search" type={Submit_type.seniorcaregiver} />
       </div>
     </div>
   );

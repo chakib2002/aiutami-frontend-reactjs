@@ -31,7 +31,7 @@ export const Input = ({
       <input
         type={type}
         className={
-          "focus:outline-none px-5 py-2 border-2 border-lightgray shadow-md rounded " +
+          "focus:outline-none px-5 py-2 border-2 border-lightgray shadow-md lg:shadow-sm rounded " +
           width
         }
         value={state}

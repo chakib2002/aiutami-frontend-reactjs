@@ -30,7 +30,7 @@ export enum signupBox {
 
 export enum care_type {
   tutor = "Tutor",
-  housekeeper = "Housekeeper",
+  housekeeper = "housekeeper",
   seniorcaregiver = "Senior caregiver",
 }
 
@@ -102,4 +102,11 @@ export enum Redirects {
   searchTutorRoute = "/search/tutor",
   searchHousekeeperRoute = "/search/housekeeper",
   searchSeniorCaregiverRoute = "/search/seniorcaregiver",
+  Results = "/Results"
+}
+
+export enum Submit_type {
+  housekeeper = "housekeeper",
+  tutor ="tutor",
+  seniorcaregiver ="senior caregiver"
 }

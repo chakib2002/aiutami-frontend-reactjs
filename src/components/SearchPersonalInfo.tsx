@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
-import { care_type } from "../state/types/enums";
+import { care_type, Submit_type } from "../state/types/enums";
 import {
   SearchHousekeeper,
   SearchSeniorCaregiver,
@@ -64,7 +64,7 @@ export const SearchPersonalInfo = ({
         <div className="flex justify-between my-5">
           <Previous action={previous} />
           {data.careType === care_type.housekeeper ? (
-            <Submit title="Search" />
+            <Submit title="Search" type={Submit_type.housekeeper} />
           ) : (
             <Next action={next} />
           )}
