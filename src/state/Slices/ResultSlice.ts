@@ -18,6 +18,7 @@ export const Result = createSlice({
         email : payload.email,
         about_me : payload.about_me,
         province : payload.province,
+        link : payload.link,
         pricing : payload.pricing,
         occupation : payload.occupation,
         care_type : payload.care_type,

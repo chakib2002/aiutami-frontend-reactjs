@@ -98,6 +98,7 @@ export type Results = {
     care_type : string,
     occupation : string,
     province: string,
+    link : string,
     pricing : number,
     about_me : string,
     availability : JSON,

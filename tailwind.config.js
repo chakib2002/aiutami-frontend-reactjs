@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors : {
+        hireNow : "#1dc704",
         primary: '#42C2FF',
         secondary :'#EFFFFD',
         bluedark : '#063970',
