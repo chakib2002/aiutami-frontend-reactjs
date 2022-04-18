@@ -9,8 +9,14 @@ import SignupPage from "./pages/SignupPage";
 import { AnimatePresence } from "framer-motion";
 import { ProtectedResults } from "./pages/ProtectedResults";
 import { ResultPage } from "./pages/ResultPage";
+import axios from "axios";
 
 function App() {
+
+  
+  axios.defaults.withCredentials = true;
+
+
   const location = useLocation();
   return (
     <AnimatePresence exitBeforeEnter>

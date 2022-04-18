@@ -56,7 +56,7 @@ export const ResultsBodyCard = ({
         </div>
       </div>
       <div className='hidden md:block md:mx-8 lg:mx-10 mb-2'>
-          <div className='cursor-default  grid grid-flow-col grid-cols-3
+          <div className='cursor-default grid grid-flow-col grid-cols-3
            py-6 px-3 rounded-lg shadow-sm hover:shadow-lg'>
             <div className='col-span-1'>
               <ResultsBodyPicture profile_picture_link={profile_picture_link} />

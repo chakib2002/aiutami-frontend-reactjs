@@ -4,15 +4,28 @@ import { ReactComponent as EmailIcon } from "../Images/EmailIcon.svg";
 import { ReactComponent as LockIcon } from "../Images/Lock.svg";
 import { Link } from "react-router-dom";
 import { NavBarLogin } from "./NavBarLogin";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   SigninEmail,
   SigninPassword,
 } from "../state/Slices/authenticationSlices";
 import { AnimatePresence, motion } from "framer-motion";
+import { signinState } from "../state/configureStore";
+import axios from "axios";
 
 export const Login = () => {
+  const data = useSelector(signinState)
   const dispatch = useDispatch();
+  const {email, password} = data
+
+  const PostSignin = ()=>{
+    axios.post("http://localhost:3001/signin",{
+      email:email,
+      password : password
+    }).then((res)=>console.log(res))
+      .catch((err)=>console.log(err))
+
+  }
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -67,7 +80,9 @@ export const Login = () => {
             </p>
 
             <div className="flex justify-center lg:justify-start space-x-5">
-              <button className="px-5 py-2 rounded-full bg-primary hover:bg-bluedark text-white active:scale-95 transition transition-duration-400 ease-out">
+              <button 
+                onClick={PostSignin}
+                className="px-5 py-2 rounded-full bg-primary hover:bg-bluedark text-white active:scale-95 transition transition-duration-400 ease-out">
                 Login now
               </button>
               <Link to="/signup">

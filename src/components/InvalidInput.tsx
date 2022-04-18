@@ -48,7 +48,7 @@ export const InvalidInput = ({
         type={type}
         className={`focus:outline-none px-5 py-2 border-2 ${
           isValid() ? "border-lightgray" : "border-red-700"
-        } shadow-md rounded 
+        } shadow-md lg:shadow-sm rounded 
           ${width} `}
         id={htmlFor}
         onChange={(e) => dispatch(handleChanges({ text: e.target.value }))}

@@ -14,11 +14,55 @@ import { signupState, useAppDispatch } from "../state/configureStore";
 import { Casename, level, LevelComponentUseCase } from "../state/types/enums";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavBarLogin } from "./NavBarLogin";
+import axios from "axios";
 
 export const SignupFormTutor = () => {
   const dispatch = useAppDispatch();
   const data = useSelector(signupState);
-  const { education } = data;
+  const { 
+    firstName,
+    lastName,
+    email,
+    password,
+    age,
+    aboutMe,
+    availability,
+    price,
+    phoneNumber,
+    province,
+    careType,
+    occupation,
+    subject,
+    school_year,
+    education } = data;
+
+    const AVAILABILITY = JSON.stringify(availability);
+
+    const postSignup = ()=>{
+      axios.post("http://localhost:3001/signup",{
+        first_name:firstName,
+        last_name : lastName,
+        email : email,
+        password : password,
+        link : null,
+        phone_number : phoneNumber,
+        care_type : careType,
+        occupation : occupation,
+        province : province,
+        about_me : aboutMe,
+        age : age,
+        price : price,
+        availability : AVAILABILITY,
+        level : data.level,
+        subject : subject,
+        schoolyear : school_year,
+        education : education
+      }).then((res)=>console.log(res))
+        .catch((err)=>console.log(err))
+    }
+
+
+
   return (
     <AnimatePresence exitBeforeEnter>
       <div className="lg:hidden">
@@ -99,7 +143,9 @@ export const SignupFormTutor = () => {
               Previous
             </button>
             <div className="xl:text-right">
-              <button className=" text-center h-10 w-28 rounded-lg border-2 border-green bg-white hover:bg-green hover:text-white text-green active:scale-95 transition transition-duration-400 ease-out">
+              <button 
+              onClick={postSignup}
+              className=" text-center h-10 w-28 rounded-lg border-2 border-green bg-white hover:bg-green hover:text-white text-green active:scale-95 transition transition-duration-400 ease-out">
                 Sign up
               </button>
             </div>

@@ -8,11 +8,47 @@ import { Next, Prev } from "../state/Slices/authenticationSlices";
 import { care_type } from "../state/types/enums";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavBarLogin } from "./NavBarLogin";
+import axios from "axios";
 
 export const SignupForm2 = () => {
   const dispatch = useAppDispatch();
   const data = useSelector(signupState);
-  const { availability, aboutMe, careType } = data;
+  const { 
+    availability,
+    aboutMe,
+    careType,
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    age,
+    occupation, 
+    password,
+    province,
+    price,
+  } = data;
+  const AVAILABILITY = JSON.stringify(availability)
+  const PostSignup = ()=>{
+    axios.post("http://localhost:3001/signup",{
+          first_name : firstName,
+          last_name : lastName,
+          email : email,
+          password : password,
+          link : null,
+          phone_number : phoneNumber,
+          care_type : careType,
+          occupation : occupation,
+          province : province,
+          about_me : aboutMe,
+          age : age,
+          price : price,
+          availability : AVAILABILITY,
+    }).then((res)=>console.log(res))
+      .catch(err=>console.log(err))
+  }
+
+
+
   const isValid = () => {
     if (availability.length && aboutMe.length) {
       return true;
@@ -53,7 +89,9 @@ export const SignupForm2 = () => {
                 Previous
               </button>
               <div className="w-full text-right">
-                <button className=" text-center h-10 w-28 rounded-lg border-2 border-green bg-white hover:bg-green hover:text-white text-green active:scale-95 transition transition-duration-400 ease-out">
+                <button
+                onClick={PostSignup}
+                className=" text-center h-10 w-28 rounded-lg border-2 border-green bg-white hover:bg-green hover:text-white text-green active:scale-95 transition transition-duration-400 ease-out">
                   Sign up
                 </button>
               </div>

@@ -13,10 +13,60 @@ import {
 import { useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavBarLogin } from "./NavBarLogin";
+import axios from "axios";
 
 export const SignupFormSeniorcare = () => {
   const data = useSelector(signupState);
   const dispatch = useAppDispatch();
+  const { firstName,
+          lastName,
+          email,
+          age,
+          phoneNumber,
+          careType,
+          province,
+          occupation,
+          password,
+          price,
+          aboutMe,
+          availability,
+          transportation,
+          house_hold_tasks, 
+          personal_care, 
+          specialized_care,
+          companionship,
+          mobility_assistance,
+          } = data
+
+      const AVAILABILITY = JSON.stringify(availability)
+
+  const postSignup = () => {
+        axios.post("http://localhost:3001/signup",{
+          first_name : firstName,
+          last_name : lastName,
+          email : email,
+          password : password,
+          link : null,
+          phone_number : phoneNumber,
+          care_type : careType,
+          occupation : occupation,
+          province : province,
+          about_me : aboutMe,
+          age : age,
+          price : price,
+          availability : AVAILABILITY,
+          transportation : transportation,
+          house_hold_tasks : house_hold_tasks,
+          personal_care : personal_care,
+          mobility_assistance : mobility_assistance,
+          companionship : companionship,
+          specialized_care : specialized_care
+        }).then((res)=>console.log(res))
+          .catch((err)=>console.log(err))
+  }
+
+
+
   return (
     <AnimatePresence exitBeforeEnter>
       <div className="lg:hidden">
@@ -85,7 +135,9 @@ export const SignupFormSeniorcare = () => {
               Previous
             </button>
             <div className="w-full text-right">
-              <button className="text-center h-10 w-28 rounded-lg border-2 border-green bg-white hover:bg-green hover:text-white text-green active:scale-95 transition transition-duration-400 ease-out">
+              <button
+                onClick={postSignup} 
+                className="text-center h-10 w-28 rounded-lg border-2 border-green bg-white hover:bg-green hover:text-white text-green active:scale-95 transition transition-duration-400 ease-out">
                 Sign up
               </button>
             </div>
