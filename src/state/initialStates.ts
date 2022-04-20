@@ -8,6 +8,7 @@ import {
   signin,
   signup,
   Results,
+  IsAuth,
 } from "./types/types";
 
 export const signinInitialState: signin = {
@@ -79,3 +80,11 @@ export const SearchResult: Results = {
   searchResultsType: null,
   results: null
 };
+
+export const IsAuthenticated : IsAuth ={
+  id : null,
+  first_name : null,
+  last_name : null,
+  link : null,
+  isAuth : null
+}

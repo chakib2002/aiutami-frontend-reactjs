@@ -114,3 +114,12 @@ export type Results = {
     companionship?: boolean,
   }[]  | null
 };
+
+
+export type IsAuth = {
+  id : number |null ,
+  first_name : string |null,
+  last_name : string |null,
+  link : string | null, 
+  isAuth : boolean |null
+} 

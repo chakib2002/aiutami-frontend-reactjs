@@ -1,29 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { ReactComponent as Office } from "../Images/Office.svg";
 import { ReactComponent as EmailIcon } from "../Images/EmailIcon.svg";
 import { ReactComponent as LockIcon } from "../Images/Lock.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { NavBarLogin } from "./NavBarLogin";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   SigninEmail,
   SigninPassword,
 } from "../state/Slices/authenticationSlices";
 import { AnimatePresence, motion } from "framer-motion";
-import { signinState } from "../state/configureStore";
+import { signinState, useAppDispatch } from "../state/configureStore";
 import axios from "axios";
+import { setFirstName, setId, setIsAuth, setLastName, setLink } from "../state/Slices/isAuthenticatedSlice";
 
 export const Login = () => {
   const data = useSelector(signinState)
-  const dispatch = useDispatch();
-  const {email, password} = data
+  const dispatch = useAppDispatch();
+  const Navigate = useNavigate()
+  const {email, password} = data;
+
+  const [Error , setError] = useState("")
+
 
   const PostSignin = ()=>{
     axios.post("http://localhost:3001/signin",{
       email:email,
       password : password
-    }).then((res)=>console.log(res))
-      .catch((err)=>console.log(err))
+    }).then((res)=>{
+      if(res.status === 401){
+        dispatch(setIsAuth({text : false}))
+      }else if (res.status === 200){
+        dispatch(setIsAuth({text : true}))
+        dispatch(setFirstName({text : res.data.first_name}))
+        dispatch(setLastName({text : res.data.last_name}))
+        dispatch(setId({text : res.data.id}))
+        dispatch(setLink({text : res.data.link}))
+        Navigate("/", {replace : true})
+      }
+    })
+      .catch((err)=>{
+        if(err.response.status === 401){
+          setError("Wrong email/password combination please try again")
+        }
+        
+      })
 
   }
 
@@ -57,8 +78,10 @@ export const Login = () => {
                 type="email"
                 placeholder="Enter your email"
                 className="focus:outline-none ml-2 w-48 bg-lightgray"
-                onChange={(e) =>
+                onChange={(e) =>{
+                  setError("")
                   dispatch(SigninEmail({ text: e.target.value }))
+                }
                 }
               />
             </div>
@@ -69,16 +92,17 @@ export const Login = () => {
                 type="password"
                 placeholder="Enter your password"
                 className="focus:outline-none w-48 ml-2"
-                onChange={(e) =>
+                onChange={(e) =>{
+                  setError("")
                   dispatch(SigninPassword({ text: e.target.value }))
                 }
+              }
               />
             </div>
-
-            <p className="text-sm font-thin opacity-50 mb-5 cursor-pointer hover:opacity-100 text-center lg:text-left">
-              Forget Password
-            </p>
-
+              <p className="text-sm font-thin opacity-50 mb-5 cursor-pointer hover:opacity-100 text-center lg:text-left">
+                Forget Password
+              </p>
+              
             <div className="flex justify-center lg:justify-start space-x-5">
               <button 
                 onClick={PostSignin}
@@ -92,8 +116,23 @@ export const Login = () => {
               </Link>
             </div>
           </div>
+          {
+            Error.length !== 0 && (
+              <motion.div
+              key="login"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+               className="block mt-6 lg:mt-2   text-center
+              lg:text-left text-red-600 text-base lg:text-xs
+              lg:w-80
+              w-64 m-auto ">
+                {Error}
+              </motion.div>
+            )
+          }
         </motion.div>
-      </div>
+      </div>    
     </AnimatePresence>
   );
 };

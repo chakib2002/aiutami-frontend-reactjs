@@ -5,6 +5,7 @@ import { SearchCardFilterTutor } from "../components/SearchCardFilterTutor";
 import { SearchCardPersonalInfo } from "../components/SearchCardPersonalInfo";
 import { SearchCardProvince } from "../components/SearchCardProvince";
 import {
+  isAuthenticatedState,
   seachTutorPageNumberState,
   searchTutorState,
 } from "../state/configureStore";
@@ -22,9 +23,11 @@ import { motion } from "framer-motion";
 export const SearchPageTutor = () => {
   const page_number = useSelector(seachTutorPageNumberState);
   const data = useSelector(searchTutorState);
+  const auth_data = useSelector(isAuthenticatedState)
   return (
     <motion.div exit={{ opacity: 0 }}>
-      <HalfNavbar />
+      {auth_data.isAuth === true && <HalfNavbar isAuth={true} />}
+      {auth_data.isAuth === false && <HalfNavbar isAuth={false} />}
       <div className="w-4/5 m-auto mt-10 cursor-default">
         <p className=" tracking-wide text-xl font-medium opacity-75">
           Find your Best <span className="font-bold">Tutor</span>{" "}

@@ -98,3 +98,11 @@ export interface ResultResponse {
     }
   }
 
+  export interface Authenticated  {
+    id : number | null,
+    first_name : string,
+    last_name : string,
+    link : string | null,
+    isAuthenticated : boolean
+  }
+

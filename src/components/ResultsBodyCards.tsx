@@ -6,7 +6,7 @@ import { ResultsBodyCard } from './ResultsBodyCard'
 export const ResultsBodyCards = () => {
   const {results} = useSelector(ResultState)
   return (
-    <div className=''>
+    <div className='mb-10'>
         {results?.map((element, index)=>{
           return (
           <div key={index}>

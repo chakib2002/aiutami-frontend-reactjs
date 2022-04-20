@@ -15,6 +15,7 @@ import {
   SearchSeniorCaregiverPageNumber,
 } from "./Slices/searchSeniorCaregiverSlice";
 import { Result } from "./Slices/ResultSlice";
+import { isAuthReducer } from "./Slices/isAuthenticatedSlice";
 
 export const store = configureStore({
   reducer: {
@@ -29,6 +30,7 @@ export const store = configureStore({
     search_senior_caregiver_page_number:
       SearchSeniorCaregiverPageNumber.reducer,
     results_of_search: Result.reducer,
+    isAuthenticated : isAuthReducer.reducer
   },
 });
 
@@ -54,6 +56,8 @@ export const searchSeniorCaregiverPageNumberState = (state: RootState) =>
   state.search_senior_caregiver_page_number;
 
 export const ResultState = (state: RootState) => state.results_of_search;
+export const isAuthenticatedState = (state : RootState)=>state.isAuthenticated
+
 
 export const useAppDispatch = () => useDispatch<AppDispatch>(); // Export a hook that can be reused to resolve types
 
