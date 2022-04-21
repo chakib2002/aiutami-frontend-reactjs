@@ -25,7 +25,9 @@ export const SearchPageTutor = () => {
   const data = useSelector(searchTutorState);
   const auth_data = useSelector(isAuthenticatedState)
   return (
-    <motion.div exit={{ opacity: 0 }}>
+    <motion.div
+    key="searchPageTutor" 
+    exit={{ opacity: 0 }}>
       {auth_data.isAuth === true && <HalfNavbar isAuth={true} />}
       {auth_data.isAuth === false && <HalfNavbar isAuth={false} />}
       <div className="w-4/5 m-auto mt-10 cursor-default">

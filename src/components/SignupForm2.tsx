@@ -9,9 +9,12 @@ import { care_type } from "../state/types/enums";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavBarLogin } from "./NavBarLogin";
 import axios from "axios";
+import { setFirstName, setId, setIsAuth, setLastName, setLink } from "../state/Slices/isAuthenticatedSlice";
+import { useNavigate } from "react-router-dom";
 
 export const SignupForm2 = () => {
   const dispatch = useAppDispatch();
+  const Navigate = useNavigate()
   const data = useSelector(signupState);
   const { 
     availability,
@@ -27,7 +30,8 @@ export const SignupForm2 = () => {
     province,
     price,
   } = data;
-  const AVAILABILITY = JSON.stringify(availability)
+  const AVAILABILITY = availability.join(",")
+  console.log(AVAILABILITY)
   const PostSignup = ()=>{
     axios.post("http://localhost:3001/signup",{
           first_name : firstName,
@@ -43,7 +47,25 @@ export const SignupForm2 = () => {
           age : age,
           price : price,
           availability : AVAILABILITY,
-    }).then((res)=>console.log(res))
+    }).then((res)=>{
+      if(res.status === 200 ){
+        axios.post("http://localhost:3001/signin",{
+        email:email,
+        password : password
+      }).then((response)=>{
+        if(response.status === 401){
+          dispatch(setIsAuth({text : false}))
+        }else if (response.status === 200){
+          dispatch(setIsAuth({text : true}))
+          dispatch(setFirstName({text : response.data.first_name}))
+          dispatch(setLastName({text : response.data.last_name}))
+          dispatch(setId({text : response.data.id}))
+          dispatch(setLink({text : response.data.link}))
+          Navigate("/", {replace : true})
+        }
+      })
+      }
+    })
       .catch(err=>console.log(err))
   }
 
@@ -69,7 +91,7 @@ export const SignupForm2 = () => {
           Get started for free and become a full-time or a part-time freelancer.
         </p>
         <motion.div
-          key="signup_form_2"
+          key="signup_form_2_component"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

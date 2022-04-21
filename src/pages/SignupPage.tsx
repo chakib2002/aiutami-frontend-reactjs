@@ -8,7 +8,9 @@ export default function SignupPage() {
   const pageNumber = useSelector(pageNumberState);
   const data = useSelector(signupState);
   return (
-    <motion.div exit={{ opacity: 0 }}>
+    <motion.div
+    key="searchPageSignup"
+    exit={{ opacity: 0 }}>
       <Signup careType={data.careType} SignUpPage={pageNumber} />
     </motion.div>
   );

@@ -5,7 +5,7 @@ import { Footer } from "../components/Footer";
 import { LargeCards } from "../components/LargeCards";
 import { NavBar } from "../components/Navbar";
 import { Section } from "../components/Section";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { isAuthenticatedState } from "../state/configureStore";
 
@@ -17,7 +17,12 @@ export const LandingPage = () => {
 
 
   return (
-    <motion.div exit={{ opacity: 0 }}>
+    <AnimatePresence exitBeforeEnter>
+    <motion.div
+    key="landingPage"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}>
       {isAuth === false && (
       <>
         <NavBar isAuthData ={false}/>
@@ -41,5 +46,6 @@ export const LandingPage = () => {
         )
       }
     </motion.div>
+    </AnimatePresence>
   );
 };

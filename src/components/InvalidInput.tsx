@@ -38,7 +38,7 @@ export const InvalidInput = ({
       >
         {name}
         {!isValid() && (
-          <span className="m-auto text-left block text-xs opacity-85 font-thin text-red-700">
+          <span className="m-auto text-left block text-xs opacity-85 font-thin text-red-600">
             Your password confirmation doesn't match your password
           </span>
         )}
@@ -47,7 +47,7 @@ export const InvalidInput = ({
         value={state}
         type={type}
         className={`focus:outline-none px-5 py-2 border-2 ${
-          isValid() ? "border-lightgray" : "border-red-700"
+          isValid() ? "border-lightgray" : "border-red-600"
         } shadow-md lg:shadow-sm rounded 
           ${width} `}
         id={htmlFor}

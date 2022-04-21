@@ -32,6 +32,7 @@ export const Check = ({
                 type="checkbox"
                 id={element.title}
                 checked={element.state}
+                onChange={()=>{}}
               />
               <label
                 className="form-check-label px-2 text-sm text-gray-800"

@@ -102,7 +102,6 @@ export const Submit = ({ title, type }: { title: string, type:Submit_type }) => 
           return res
         })
         .then((res)=>{
-          console.log(res)
           res.data.forEach((element : ResultResponse, index : number)=>{
             dispatch(SetSearchResults({
               id:element.id,
@@ -129,7 +128,6 @@ export const Submit = ({ title, type }: { title: string, type:Submit_type }) => 
   )
 })
         .then((res)=>{
-          console.log(res)
           dispatch(SetResultsType({text : care_type.seniorcaregiver}))
         })
         .then(()=>{

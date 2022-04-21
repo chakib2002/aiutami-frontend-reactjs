@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "./Input";
 import { Link } from "react-router-dom";
 import {
@@ -21,10 +21,11 @@ import { Next } from "../state/Slices/authenticationSlices";
 import { InvalidInput } from "./InvalidInput";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavBarLogin } from "./NavBarLogin";
+import axios from "axios";
 
 export const SignupForm1 = () => {
   const dispatch = useAppDispatch();
-
+  const [emailExist, setEmailExist]= useState("")
   const Selectdata = useSelector(signupState);
   const {
     firstName,
@@ -51,7 +52,8 @@ export const SignupForm1 = () => {
       careType !== null &&
       password.length &&
       confirmPassword.length &&
-      Selectdata.province !== null
+      Selectdata.province !== null &&
+      password === confirmPassword
     ) {
       return true;
     } else {
@@ -81,7 +83,7 @@ export const SignupForm1 = () => {
           Get started for free and become a full-time or a part-time freelancer.
         </p>
         <motion.div
-          key="signupForm1"
+          key="signupForm1_component"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -105,14 +107,19 @@ export const SignupForm1 = () => {
             />
           </div>
           <div className="block lg:flex lg:justify-center lg:space-x-5">
-            <Input
-              type="email"
-              name="Email"
-              htmlFor="Email"
-              width="w-80 lg:w-auto"
-              handleChanges={SignupEmail}
-              state={email}
-            />
+            <div>
+              <Input
+                type="email"
+                name="Email"
+                htmlFor="Email"
+                width="w-80 lg:w-auto"
+                handleChanges={SignupEmail}
+                state={email}
+                invalid = {emailExist}
+                setEmailExist = {setEmailExist}
+              />
+              {}
+            </div>
             <Input
               type="text"
               name="Phone number"
@@ -200,7 +207,19 @@ export const SignupForm1 = () => {
             </p>
             {isValid ? (
               <button
-                onClick={() => dispatch(Next())}
+                onClick={() => {
+                  axios.get("http://localhost:3001/userExistance/"+email)
+                  .then((res)=>{
+                    if(res.status === 200 ) {
+                      console.log(res.data.message)
+                      console.log(res.status)
+                      dispatch(Next())
+                    }
+                  })
+                  .catch((err)=>{
+                    setEmailExist("This email is already registered .")
+                  })
+                }}
                 className=" mb-10 lg:mb-0 bg-primary text-white text-sm font-medium h-10 w-24 rounded-lg hover:border hover:border-primary hover:text-primary hover:bg-white active:scale-95 transition transition-duration-400 ease-out"
               >
                 Next

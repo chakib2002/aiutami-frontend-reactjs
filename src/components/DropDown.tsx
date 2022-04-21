@@ -125,22 +125,22 @@ export const DropDown = ({
               {options.map((element, index) => {
                 return (
                   <li
+                    
                     onClick={() => dispatch(theAction({ text: element }))}
                     key={index}
                     className="
                     py-3
-              cursor-pointer
-              dropdown-item
-              text-sm
-              px-4
-              font-normal
-              block
-              w-full
-              whitespace-nowrap
-              bg-transparent
-              text-gray-700
-              hover:bg-gray-100
-            "
+                    cursor-pointer
+                    dropdown-item
+                    text-sm
+                    px-4
+                    font-normal
+                    block
+                    w-full
+                    whitespace-nowrap
+                    bg-transparent
+                    text-gray-700
+                    hover:bg-gray-100"
                   >
                     {element}
                   </li>

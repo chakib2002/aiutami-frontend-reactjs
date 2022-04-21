@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -8,12 +7,7 @@ export const HalfNavbar = ({isAuth}: {isAuth : boolean}) => {
   const data = useSelector(isAuthenticatedState)
   const { link}= data
   return (
-    <AnimatePresence exitBeforeEnter>
-    <motion.div
-      key="filter_tutors"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+    <div
       className="flex justify-between bg-primary ">
       <div className="bg-primary">
         <Link to="/">
@@ -64,7 +58,6 @@ export const HalfNavbar = ({isAuth}: {isAuth : boolean}) => {
         </div>
       )}
       </div>
-      </motion.div>
-    </AnimatePresence>
+    </div>
   );
 };

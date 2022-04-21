@@ -27,7 +27,9 @@ export const SearchPageSeniorcaregiver = () => {
   const auth_data = useSelector(isAuthenticatedState)
 
   return (
-    <motion.div exit={{ opacity: 0 }}>
+    <motion.div
+    key="searchPageSeniorcaregiver"
+    exit={{ opacity: 0 }}>
       {auth_data.isAuth === true && 
       <>
       <HalfNavbar isAuth={true} />

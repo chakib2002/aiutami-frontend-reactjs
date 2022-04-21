@@ -14,10 +14,13 @@ import { useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavBarLogin } from "./NavBarLogin";
 import axios from "axios";
+import { setFirstName, setId, setIsAuth, setLastName, setLink } from "../state/Slices/isAuthenticatedSlice";
+import { useNavigate } from "react-router-dom";
 
 export const SignupFormSeniorcare = () => {
   const data = useSelector(signupState);
   const dispatch = useAppDispatch();
+  const Navigate = useNavigate()
   const { firstName,
           lastName,
           email,
@@ -38,7 +41,7 @@ export const SignupFormSeniorcare = () => {
           mobility_assistance,
           } = data
 
-      const AVAILABILITY = JSON.stringify(availability)
+      const AVAILABILITY = availability.join(",")
 
   const postSignup = () => {
         axios.post("http://localhost:3001/signup",{
@@ -61,7 +64,25 @@ export const SignupFormSeniorcare = () => {
           mobility_assistance : mobility_assistance,
           companionship : companionship,
           specialized_care : specialized_care
-        }).then((res)=>console.log(res))
+        }).then((res)=>{
+          if(res.status === 200 ){
+            axios.post("http://localhost:3001/signin",{
+            email:email,
+            password : password
+          }).then((response)=>{
+            if(response.status === 401){
+              dispatch(setIsAuth({text : false}))
+            }else if (response.status === 200){
+              dispatch(setIsAuth({text : true}))
+              dispatch(setFirstName({text : response.data.first_name}))
+              dispatch(setLastName({text : response.data.last_name}))
+              dispatch(setId({text : response.data.id}))
+              dispatch(setLink({text : response.data.link}))
+              Navigate("/", {replace : true})
+            }
+          })
+          }
+        })
           .catch((err)=>console.log(err))
   }
 

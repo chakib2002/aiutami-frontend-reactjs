@@ -54,7 +54,7 @@ export const Login = () => {
       <div className="grid grid-flow-col">
         <Office />
         <motion.div
-          key="login"
+          key="login_component"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -119,11 +119,11 @@ export const Login = () => {
           {
             Error.length !== 0 && (
               <motion.div
-              key="login"
+              key="login_Error_Message"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-               className="block mt-6 lg:mt-2   text-center
+               className="lg:absolute mt-6 px-2 lg:mt-2 text-center
               lg:text-left text-red-600 text-base lg:text-xs
               lg:w-80
               w-64 m-auto ">

@@ -55,7 +55,7 @@ export interface searchResultBody {
   link : string,
   pricing : number ,
   about_me : string ,
-  availability : JSON ,
+  availability : string ,
   level? : string,
   subject? : string,
   school_year? : string,
@@ -81,7 +81,7 @@ export interface ResultResponse {
     link : string,
     price : number ,
     about_me : string ,
-    availability : JSON ,
+    availability : string,
     Tutor : {
       level? : string,
       subject? : string,

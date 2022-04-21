@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 
 export const LoginPage = () => {
   return (
-    <motion.div exit={{ opacity: 0 }}>
+    <motion.div 
+    key = "searchPageLogin"
+    exit={{ opacity: 0 }}>
       <Login />
     </motion.div>
   );

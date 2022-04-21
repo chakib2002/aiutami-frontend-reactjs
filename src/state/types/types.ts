@@ -101,7 +101,7 @@ export type Results = {
     link : string,
     pricing : number,
     about_me : string,
-    availability : JSON,
+    availability : string,
     level?: string,
     subject?: string,
     school_year?: string,

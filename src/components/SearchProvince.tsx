@@ -17,7 +17,7 @@ export const SearchProvince = ({
   return (
     <AnimatePresence exitBeforeEnter>
       <motion.div
-        key="province"
+        key="province_component"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

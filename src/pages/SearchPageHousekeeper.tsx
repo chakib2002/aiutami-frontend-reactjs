@@ -24,7 +24,9 @@ export const SearchPageHousekeeper = () => {
   const data = useSelector(searchHousekeeperState);
   const auth_data = useSelector(isAuthenticatedState)
   return (
-    <motion.div exit={{ opacity: 0 }}>
+    <motion.div
+    key="searchPageHousekeeper"
+    exit={{ opacity: 0 }}>
      { auth_data.isAuth === true &&
      <>
        <HalfNavbar isAuth={true} />

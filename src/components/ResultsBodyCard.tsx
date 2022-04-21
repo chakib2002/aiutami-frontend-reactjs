@@ -28,7 +28,7 @@ export const ResultsBodyCard = ({
   about_me:string,
   price:number,
   province:string,
-  availability:JSON,
+  availability:string,
   id:number
 }) => {
   

@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -9,12 +8,8 @@ export const NavBar = ({isAuthData} : {isAuthData : boolean}) => {
   const { link } = useSelector(isAuthenticatedState)
   return (
     <>
-    <AnimatePresence exitBeforeEnter>
-    <motion.div
-      key="filter_tutors"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }} className="grid grid-cols-6">
+   
+    <div className="grid grid-cols-6">
       <div className="bg-primary col-span-3">
         <Link to="/">
           <div className={`${isAuthData && 'pt-1'} cursor-pointer font-bold text-2xl text-secondary ml-5 my-5 active:text-bluedark transition transition-duration-700 ease-out `}>
@@ -90,8 +85,7 @@ export const NavBar = ({isAuthData} : {isAuthData : boolean}) => {
           </Link>
         </div>
       )}
-    </motion.div>
-    </AnimatePresence>
+    </div>
   </>
   );
 };
