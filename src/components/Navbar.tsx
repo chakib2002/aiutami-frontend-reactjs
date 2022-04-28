@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { isAuthenticatedState } from "../state/configureStore";
+import { Menu } from "./Menu";
 
 export const NavBar = ({isAuthData} : {isAuthData : boolean}) => {
 
   const { link } = useSelector(isAuthenticatedState)
+  const [settings, setSettings] = useState(false)
   return (
     <>
    
@@ -52,23 +54,25 @@ export const NavBar = ({isAuthData} : {isAuthData : boolean}) => {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-11 w-10 text-secondary inline md:mx-2 cursor-pointer 
-                        hover:scale-105 active:scale-95 transition transition-duration-400 ease-out"
+                        hover:scale-105 active:scale-95 transition transition-duration-900 ease-out"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
                     <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
                   </svg>
                 </div>
+                
                 <img
+                  onClick={()=>setSettings(!settings)}
                   src={
                     link !==null
                       ? 
-                      link
+                      `http://localhost:3001/${link}-profile.jpeg`
                       :
                        "https://imgs.search.brave.com/vLBQF6u3LXw69YDbtMDqv8K0uUxyGpga5L_8nN-ip7Y/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly90aGVw/b3dlcm9mdGhlZHJl/YW0ub3JnL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE1LzA5L2dl/bmVyaWMtcHJvZmls/ZS1waWN0dXJlLTEy/MDB4MTIwMC5qcGc"
                   }
                   alt=""
-                  className="h-12 w-12 rounded-full inline mr-1 cursor-pointer"
+                  className="h-12 w-12 rounded-full inline mr-1 cursor-pointer lg:hover:opacity-90 active:scale-95 transition transition-duration-900 ease-out "
                 />
               </div>
 
@@ -86,6 +90,7 @@ export const NavBar = ({isAuthData} : {isAuthData : boolean}) => {
         </div>
       )}
     </div>
+    {settings && <Menu/>}
   </>
   );
 };
