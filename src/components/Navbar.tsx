@@ -3,11 +3,13 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { isAuthenticatedState } from "../state/configureStore";
 import { Menu } from "./Menu";
+import { Notification } from "./Notification";
 
 export const NavBar = ({isAuthData} : {isAuthData : boolean}) => {
 
-  const { link } = useSelector(isAuthenticatedState)
-  const [settings, setSettings] = useState(false)
+  const { link } = useSelector(isAuthenticatedState);
+  const [settings, setSettings] = useState(false);
+  const [notification, setNotification] = useState(false)
   return (
     <>
    
@@ -50,7 +52,11 @@ export const NavBar = ({isAuthData} : {isAuthData : boolean}) => {
         </div>
       {isAuthData === true && (
                 <div className="bg-primary py-4 col-span-3 space-x-5 text-right pr-5">
-                <div className="inline">
+                <div className="inline "
+                  onClick={()=>{
+                    setSettings(false);
+                    setNotification(!notification);
+                  }}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-11 w-10 text-secondary inline md:mx-2 cursor-pointer 
@@ -63,7 +69,10 @@ export const NavBar = ({isAuthData} : {isAuthData : boolean}) => {
                 </div>
                 
                 <img
-                  onClick={()=>setSettings(!settings)}
+                  onClick={()=>{
+                    setNotification(false);
+                    setSettings(!settings)
+                  }}
                   src={
                     link !==null
                       ? 
@@ -91,6 +100,7 @@ export const NavBar = ({isAuthData} : {isAuthData : boolean}) => {
       )}
     </div>
     {settings && <Menu/>}
+    {notification && <Notification />}
   </>
   );
 };

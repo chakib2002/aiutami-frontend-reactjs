@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { isAuthenticatedState } from "../state/configureStore";
 import { Menu } from "./Menu";
+import { Notification } from "./Notification";
 
 export const HalfNavbar = ({isAuth}: {isAuth : boolean}) => {
-  const [settings, setSettings] = useState(false)
+  const [settings, setSettings] = useState(false);
+  const [notification, setNotification] = useState(false)
   const data = useSelector(isAuthenticatedState)
   const { link}= data
   return (
@@ -22,7 +24,11 @@ export const HalfNavbar = ({isAuth}: {isAuth : boolean}) => {
       <div className="bg-primary">
       {isAuth === true && (
             <div className="bg-primary py-4 col-span-3 space-x-5 text-center pr-5">
-            <div className="inline">
+            <div className="inline"
+               onClick={()=>{
+                setSettings(false);
+                setNotification(!notification);
+              }}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-11 w-10 text-white inline md:mx-2 cursor-pointer 
@@ -66,6 +72,7 @@ export const HalfNavbar = ({isAuth}: {isAuth : boolean}) => {
       </div>
     </div>
     {settings && <Menu/>}
+    {notification && <Notification />}
     </>
      
   );
