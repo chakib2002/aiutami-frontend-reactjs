@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Casename } from "../state/types/enums";
-import { HalfNavbar } from "../components/HalfNavbar";
-import { SearchCardPersonalInfo } from "../components/SearchCardPersonalInfo";
-import { SearchCardProvince } from "../components/SearchCardProvince";
+import { HalfNavbar } from "../components/Home_components/HalfNavbar";
+import { SearchCardPersonalInfo } from "../components/Search_components/SearchCardPersonalInfo";
+import { SearchCardProvince } from "../components/Search_components/SearchCardProvince";
 import {
   isAuthenticatedState,
   searchSeniorCaregiverPageNumberState,
@@ -17,7 +17,7 @@ import {
   searchSeniorCaregiverPhoneNumber,
   searchSeniorcaregiverProvince,
 } from "../state/Slices/searchSeniorCaregiverSlice";
-import { SearchCardFilterSeniorcaregiver } from "../components/SearchCardFilterSeniorcaregiver";
+import { SearchCardFilterSeniorcaregiver } from "../components/Search_components/SearchCardFilterSeniorcaregiver";
 import { motion } from "framer-motion";
 
 export const SearchPageSeniorcaregiver = () => {

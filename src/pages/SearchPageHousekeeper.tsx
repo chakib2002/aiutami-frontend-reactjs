@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { HalfNavbar } from "../components/HalfNavbar";
-import { SearchCardPersonalInfo } from "../components/SearchCardPersonalInfo";
-import { SearchCardProvince } from "../components/SearchCardProvince";
+import { HalfNavbar } from "../components/Home_components/HalfNavbar";
+import { SearchCardPersonalInfo } from "../components/Search_components/SearchCardPersonalInfo";
+import { SearchCardProvince } from "../components/Search_components/SearchCardProvince";
 import {
   isAuthenticatedState,
   searchHousekeeperPageNumberState,

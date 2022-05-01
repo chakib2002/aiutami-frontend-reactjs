@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Signup } from "../components/Signup";
+import { Signup } from "../components/Signup_components/Signup";
 import { pageNumberState, signupState } from "../state/configureStore";
 import { motion } from "framer-motion";
 

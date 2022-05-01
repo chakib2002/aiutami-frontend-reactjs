@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { HalfNavbar } from "../components/HalfNavbar";
-import { SearchCardFilterTutor } from "../components/SearchCardFilterTutor";
-import { SearchCardPersonalInfo } from "../components/SearchCardPersonalInfo";
-import { SearchCardProvince } from "../components/SearchCardProvince";
+import { HalfNavbar } from "../components/Home_components/HalfNavbar";
+import { SearchCardFilterTutor } from "../components/Search_components/SearchCardFilterTutor";
+import { SearchCardPersonalInfo } from "../components/Search_components/SearchCardPersonalInfo";
+import { SearchCardProvince } from "../components/Search_components/SearchCardProvince";
 import {
   isAuthenticatedState,
   seachTutorPageNumberState,
