@@ -9,8 +9,8 @@ import {
 import { Casename, level, LevelComponentUseCase, Submit_type } from "../../state/types/enums";
 import { DropDown } from "../Signup_components/DropDown";
 import { Levels } from "../Signup_components/Levels";
-import { Previous } from "../other_components/Previous";
-import { Submit } from "../other_components/Submit";
+import { Previous } from "../Other_components/Previous";
+import { Submit } from "../Other_components/Submit";
 
 export const SearchFilterTutor = () => {
   return (

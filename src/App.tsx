@@ -13,6 +13,7 @@ import axios from "axios";
 import { setFirstName, setId, setIsAuth, setLastName, setLink } from "./state/Slices/isAuthenticatedSlice";
 import { useAppDispatch } from "./state/configureStore";
 import { ProtectedAuthentication} from "./pages/ProtectedAuthentication";
+import { MoreDetailsPage } from "./pages/MoreDetailsPage";
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
         <Route element={<ProtectedResults />}>
           <Route path="Results" element={<ResultPage />} />
         </Route>
+        <Route path="/Results/:user_id" element={<MoreDetailsPage/>} />
       </Routes>
     </AnimatePresence>
   );

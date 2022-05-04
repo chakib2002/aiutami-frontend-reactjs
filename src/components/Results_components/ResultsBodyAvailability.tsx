@@ -7,7 +7,7 @@ export const ResultsBodyAvailability = ({availability}: {availability:string})=>
   
   return (
     <div className='px-1'>
-      <p className='font-bold md:text-xs lg:text-base'>Availability</p>
+      <p className='font-bold md:text-xs lg:text-sm md:mt-2'>Availability</p>
         <div className='flex' >
           {AVAILABILITY.map((element : any, index : any )=>{
            
