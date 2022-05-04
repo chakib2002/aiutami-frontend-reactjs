@@ -50,6 +50,7 @@ function App() {
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/check" element={<MoreDetailsPage/>} />
         <Route element={<ProtectedAuthentication/>} >
           <Route path="/signin" element={<LoginPage />} />
         </Route>
@@ -65,7 +66,6 @@ function App() {
         <Route element={<ProtectedResults />}>
           <Route path="Results" element={<ResultPage />} />
         </Route>
-        <Route path="/check" element={<MoreDetailsPage/>} />
       </Routes>
     </AnimatePresence>
   );
