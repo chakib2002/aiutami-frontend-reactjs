@@ -65,7 +65,7 @@ function App() {
         <Route element={<ProtectedResults />}>
           <Route path="Results" element={<ResultPage />} />
         </Route>
-        <Route path="/Results/:user_id" element={<MoreDetailsPage/>} />
+        <Route path="/check" element={<MoreDetailsPage/>} />
       </Routes>
     </AnimatePresence>
   );
