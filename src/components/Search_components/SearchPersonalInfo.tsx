@@ -8,7 +8,7 @@ import {
 } from "../../state/types/types";
 import { Input } from "../Signup_components/Input";
 import { Next } from "../Other_components/Next";
-import { Previous } from "../Other_components/Previous";
+import { Previous } from "./Previous";
 import { Submit } from "../Other_components/Submit";
 import { Text } from "./Text";
 

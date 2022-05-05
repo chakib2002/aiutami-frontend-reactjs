@@ -1,7 +1,7 @@
 import React from "react";
 import { decrementPageNumberSeniorCaregiver } from "../../state/Slices/searchSeniorCaregiverSlice";
 import { Submit_type } from "../../state/types/enums";
-import { Previous } from "../Other_components/Previous";
+import { Previous } from "./Previous";
 import { SearchFilterSeniorcaregiver } from "./SearchFilterSeniorcaregiver";
 import { SearchHeader } from "./SearchHeader";
 import { Submit } from "../Other_components/Submit";
