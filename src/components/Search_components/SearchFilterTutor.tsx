@@ -10,7 +10,7 @@ import { Casename, level, LevelComponentUseCase, Submit_type } from "../../state
 import { DropDown } from "../Signup_components/DropDown";
 import { Levels } from "../Signup_components/Levels";
 import { Previous } from "./Previous";
-import { Submit } from "../Other_components/Submit";
+import { Submit } from "./Submit";
 
 export const SearchFilterTutor = () => {
   return (

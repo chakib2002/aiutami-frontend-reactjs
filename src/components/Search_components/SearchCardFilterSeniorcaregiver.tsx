@@ -4,7 +4,7 @@ import { Submit_type } from "../../state/types/enums";
 import { Previous } from "./Previous";
 import { SearchFilterSeniorcaregiver } from "./SearchFilterSeniorcaregiver";
 import { SearchHeader } from "./SearchHeader";
-import { Submit } from "../Other_components/Submit";
+import { Submit } from "./Submit";
 
 export const SearchCardFilterSeniorcaregiver = () => {
   return (

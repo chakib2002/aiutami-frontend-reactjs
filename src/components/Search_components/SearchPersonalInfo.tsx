@@ -7,9 +7,9 @@ import {
   SearchTutor,
 } from "../../state/types/types";
 import { Input } from "../Signup_components/Input";
-import { Next } from "../Other_components/Next";
+import { Next } from "./Next";
 import { Previous } from "./Previous";
-import { Submit } from "../Other_components/Submit";
+import { Submit } from "./Submit";
 import { Text } from "./Text";
 
 export const SearchPersonalInfo = ({
