@@ -1,7 +1,7 @@
 import React from "react";
 import { province } from "../../state/types/enums";
 import { DropDown } from "../Signup_components/DropDown";
-import { Next } from "../Other_components/Next";
+import { Next } from "./Next";
 import { Casename } from "../../state/types/enums";
 import { AnimatePresence, motion } from "framer-motion";
 
