@@ -4,7 +4,7 @@ import { ProfileResultBody } from '../components/Profile_components/ProfileResul
 
 export const MoreDetailsPage = () => {
   return (
-    <div className=''>
+    <div>
       <ProfileHeader />
       <ProfileResultBody/>
     </div>

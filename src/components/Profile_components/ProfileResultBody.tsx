@@ -2,7 +2,7 @@ import React from 'react'
 
 export const ProfileResultBody = () => {
   return (
-    <div className='mt-16 mx-5 sm:mx-10 md:hidden'>
+    <div className='mt-16 mx-5 sm:mx-10'>
         <div className='my-3'>
             <h1 className='font-bold mb-3'>Availability</h1>
             <div className='flex overflow-x-scroll scrollbar-hide '>

@@ -5,7 +5,7 @@ import { HalfNavbar } from '../Home_components/HalfNavbar'
 export const ProfileHeader = () => {
   return (
     <>
-      <div className='md:hidden'>
+      <div className=''>
           <HalfNavbar isAuth={false}/>
           <div className='flex mx-2 space-x-2 my-5 justify-evenly flex-wrap '>
               <img src='http://localhost:3001/28c9c222-f1ea-477c-9062-6463017e6d72-square.jpeg'
