@@ -67,9 +67,9 @@ export const ResultsBodyCard = ({
 
 
 
-      <div className='hidden md:block md:mx-8 lg:mx-10'>
+      <div className='hidden md:block md:mx-8 lg:mx-10 my-1'>
           <div className='grid grid-flow-col grid-cols-4 cursor-pointer transition
-           transition-duration-600 ease-out py-6 px-3 rounded-lg shadow-sm hover:shadow-lg border
+           transition-duration-600 ease-out py-6 px-3 rounded-lg shadow-sm hover:shadow-md border
             border-slate-50 '>
             <div className='col-span-1 justify-self-start md:ml-1 lg:ml-3 xl:ml-5'>
               <ResultsBodyPicture profile_picture_link={profile_picture_link} />

@@ -7,25 +7,13 @@ import { ResultsHeader } from "../components/Results_components/ResultsHeader";
 import { isAuthenticatedState } from "../state/configureStore";
 
 export const ResultPage = () => {
-  const auth_data = useSelector(isAuthenticatedState)
+  const {isAuth} = useSelector(isAuthenticatedState)
   return (
     <div>
-      {auth_data.isAuth === true && (
-      <>
-        <HalfNavbar isAuth={true} />
+        <HalfNavbar isAuth={isAuth === true ? true : false} />
         <ResultsHeader />
         <ResultsBody/>
         <Footer/>
-      </>
-      )}
-      {auth_data.isAuth === false && (
-      <>
-        <HalfNavbar isAuth={false} />
-        <ResultsHeader />
-        <ResultsBody/>
-        <Footer/> 
-      </>
-      )}
     </div>
   );
 };
