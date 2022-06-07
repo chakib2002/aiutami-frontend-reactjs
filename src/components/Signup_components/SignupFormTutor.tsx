@@ -12,7 +12,7 @@ import {
 import { useSelector } from "react-redux";
 import { signupState, useAppDispatch } from "../../state/configureStore";
 import { Casename, level, LevelComponentUseCase } from "../../state/types/enums";
-import { AnimatePresence, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 import { NavBarLogin } from "../Signin_components/NavBarLogin";
 import axios from "axios";
 import { setFirstName, setId, setIsAuth, setLastName, setLink } from "../../state/Slices/isAuthenticatedSlice";
@@ -85,7 +85,7 @@ export const SignupFormTutor = () => {
 
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <>
       <div className="lg:hidden">
         <NavBarLogin />
       </div>
@@ -173,6 +173,6 @@ export const SignupFormTutor = () => {
           </div>
         </motion.div>
       </div>
-    </AnimatePresence>
+    </>
   );
 };

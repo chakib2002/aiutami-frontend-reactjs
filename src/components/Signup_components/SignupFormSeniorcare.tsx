@@ -11,7 +11,7 @@ import {
   SignupTransportation,
 } from "../../state/Slices/authenticationSlices";
 import { useSelector } from "react-redux";
-import { AnimatePresence, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 import { NavBarLogin } from "../Signin_components/NavBarLogin";
 import axios from "axios";
 import { setFirstName, setId, setIsAuth, setLastName, setLink } from "../../state/Slices/isAuthenticatedSlice";
@@ -89,7 +89,7 @@ export const SignupFormSeniorcare = () => {
 
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <>
       <div className="lg:hidden">
         <NavBarLogin />
       </div>
@@ -165,6 +165,6 @@ export const SignupFormSeniorcare = () => {
           </div>
         </motion.div>
       </div>
-    </AnimatePresence>
+    </>
   );
 };

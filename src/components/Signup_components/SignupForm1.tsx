@@ -19,7 +19,7 @@ import { useSelector } from "react-redux";
 import { signupState, useAppDispatch } from "../../state/configureStore";
 import { Next } from "../../state/Slices/authenticationSlices";
 import { InvalidInput } from "./InvalidInput";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { NavBarLogin } from "../Signin_components/NavBarLogin";
 import axios from "axios";
 
@@ -73,7 +73,7 @@ export const SignupForm1 = () => {
   const isValid = isValidSignupFormOne();
 
   return (
-    <AnimatePresence exitBeforeEnter>
+<>
       <div className="lg:hidden">
         <NavBarLogin />
       </div>
@@ -235,6 +235,6 @@ export const SignupForm1 = () => {
           </div>
         </motion.div>
       </div>
-    </AnimatePresence>
+</>
   );
 };

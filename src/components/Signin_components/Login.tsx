@@ -9,7 +9,7 @@ import {
   SigninEmail,
   SigninPassword,
 } from "../../state/Slices/authenticationSlices";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { signinState, useAppDispatch } from "../../state/configureStore";
 import axios from "axios";
 import { setFirstName, setId, setIsAuth, setLastName, setLink } from "../../state/Slices/isAuthenticatedSlice";
@@ -49,7 +49,7 @@ export const Login = () => {
   }
 
   return (
-    <AnimatePresence exitBeforeEnter>
+ <div>
       <NavBarLogin />
       <div className="grid grid-flow-col">
         <Office />
@@ -133,6 +133,6 @@ export const Login = () => {
           }
         </motion.div>
       </div>    
-    </AnimatePresence>
+  </div>
   );
 };

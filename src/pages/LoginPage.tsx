@@ -1,13 +1,15 @@
 import React from "react";
 import { Login } from "../components/Signin_components/Login";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const LoginPage = () => {
   return (
-    <motion.div 
-    key = "searchPageLogin"
-    exit={{ opacity: 0 }}>
-      <Login />
-    </motion.div>
+    <AnimatePresence exitBeforeEnter>
+      <motion.div 
+      key = "searchPageLogin"
+      exit={{ opacity: 0 }}>
+        <Login />
+      </motion.div>
+    </AnimatePresence>
   );
 };
