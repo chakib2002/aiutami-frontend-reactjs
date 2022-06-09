@@ -1,3 +1,4 @@
+import { UserProfile } from './Slices/userProfileSlice';
 import { configureStore } from "@reduxjs/toolkit";
 import {
   PageNumber,
@@ -30,7 +31,8 @@ export const store = configureStore({
     search_senior_caregiver_page_number:
       SearchSeniorCaregiverPageNumber.reducer,
     results_of_search: Result.reducer,
-    isAuthenticated : isAuthReducer.reducer
+    isAuthenticated : isAuthReducer.reducer,
+    User_Profile_More_Info : UserProfile.reducer
   },
 });
 
@@ -57,6 +59,7 @@ export const searchSeniorCaregiverPageNumberState = (state: RootState) =>
 
 export const ResultState = (state: RootState) => state.results_of_search;
 export const isAuthenticatedState = (state : RootState)=>state.isAuthenticated
+export const UserMoreInfoProfileState = (state:RootState)=>state.User_Profile_More_Info
 
 
 export const useAppDispatch = () => useDispatch<AppDispatch>(); // Export a hook that can be reused to resolve types

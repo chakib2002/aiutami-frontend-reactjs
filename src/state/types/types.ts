@@ -123,3 +123,18 @@ export type IsAuth = {
   link : string | null, 
   isAuth : boolean |null
 } 
+
+export type userProfile = {
+    id : number | null,
+    firstname : string | null,
+    lastname : string | null,
+    email : string | null,
+    Province : string | null,
+    age : number | null,
+    price :number | null,
+    careType : string | null,
+    aboutMe : string | null,
+    availability :string | null,
+    link :string | null,
+    occupation : string |null
+}

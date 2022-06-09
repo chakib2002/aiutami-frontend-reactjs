@@ -1,24 +1,37 @@
 import React from 'react'
+import { setUserProfile } from '../../state/Slices/userProfileSlice'
+import { ResultState, useAppDispatch } from '../../state/configureStore'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
-import axios from 'axios'
 
 export const MoreDetailsButton = ({id} : {id:number}) => {
 
-
+const dispatch = useAppDispatch();
+const navigate = useNavigate();
+const {results} = useSelector(ResultState)
 
   return (
     <button 
       onClick={()=>{
-        // fetch the data of a specific user from the backend
-        axios.get('')
-        .then((data)=>{
-        // update the state store 
-        })
-        .then(()=>{
-          // navigate to the specific user
-        })
-        .catch(err =>{
-          // catch error
+        results?.forEach((e, i) =>{
+          if(id === e.id){
+            dispatch(setUserProfile({
+              id : e.id,
+              firstname : e.firstname,
+              lastname : e.lastname,
+              email : e.email,
+              Province : e.province,
+              age : e.age,
+              price :e.pricing,
+              careType :e.care_type,
+              aboutMe :e.about_me,
+              availability :e.availability,
+              link : e.link,
+              occupation : e.occupation
+            }))
+            navigate('/Results/'+id, {replace : false})
+          }
         })
       }}
       className='w-full md:w-24 lg:w-28 border-2 border-primary md:hover:bg-white

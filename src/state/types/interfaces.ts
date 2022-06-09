@@ -106,3 +106,17 @@ export interface ResultResponse {
     isAuthenticated : boolean
   }
 
+  export interface User_Profile {
+    id : number | null ,
+    firstname : string | null,
+    lastname : string | null,
+    email : string | null,
+    Province : string | null,
+    age : number | null,
+    price :number | null,
+    careType : string | null,
+    aboutMe : string | null,
+    availability :string | null,
+    link :string | null,
+    occupation : string |null
+  }

@@ -9,6 +9,7 @@ import {
   signup,
   Results,
   IsAuth,
+  userProfile,
 } from "./types/types";
 
 export const signinInitialState: signin = {
@@ -87,4 +88,19 @@ export const IsAuthenticated : IsAuth ={
   last_name : null,
   link : null,
   isAuth : null
+}
+
+export const MoreInfoProfile : userProfile = {
+    id : null,
+    firstname : null,
+    lastname : null,
+    email : null,
+    Province : null,
+    age : null,
+    price :null,
+    careType : null,
+    aboutMe : null,
+    availability :null,
+    link :null,
+    occupation : null
 }
