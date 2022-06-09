@@ -41,7 +41,7 @@ export const ProfileHeader = () => {
       </div>
     </div>
   
-    <div className='md:hidden'>
+    <div className='md:hidden mb-16'>
       <NavBar isAuthData={isAuth === true ? true : false} />
           <div className='flex mx-2 space-x-2 my-5 justify-evenly flex-wrap '>
               <img src='http://localhost:3001/28c9c222-f1ea-477c-9062-6463017e6d72-square.jpeg'
