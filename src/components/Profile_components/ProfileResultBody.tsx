@@ -6,7 +6,7 @@ import { ProfileAvailability } from './ProfileAvailability'
 
 export const ProfileResultBody = () => {
 
-  const {availability, aboutMe, firstname, lastname,careType} = useSelector(UserMoreInfoProfileState);
+  const {availability, aboutMe, firstname, lastname,careType, id} = useSelector(UserMoreInfoProfileState);
   const [open, setOpen] = useState(false)
 
   return (
@@ -28,7 +28,7 @@ export const ProfileResultBody = () => {
     </div>
 
     </div>
-      <HiringModal open={open} setOpen={setOpen} firstname={firstname} lastname={lastname} careType={careType}/>
+      <HiringModal open={open} setOpen={setOpen} firstname={firstname} lastname={lastname} careType={careType} id={id}/>
    </div>
   )
 }

@@ -13,7 +13,8 @@ export const ResultsBodyCard = ({
   price,
   province,
   availability,
-  id
+  id,
+  careType
 }:{
   profile_picture_link:string, 
   full_name:string, 
@@ -24,6 +25,7 @@ export const ResultsBodyCard = ({
   province:string,
   availability:string,
   id:number
+  careType:string |null
 }) => {
   
   return (
@@ -56,7 +58,7 @@ export const ResultsBodyCard = ({
           <ResultsBodyAvailability availability={availability} />
         </div>
         <div className='flex space-x-5 px-1 py-2 mb-2 '>
-          <HireNowButton/>
+          <HireNowButton fullname={full_name} id={id} careType={careType}/>
           <MoreDetailsButton id={id}/>
         </div>
       </div>
@@ -98,7 +100,7 @@ export const ResultsBodyCard = ({
                 <div className='flex justify-between xl:mt-10'>
                   <ResultsBodyAvailability availability={availability}/>
                   <div className='flex md:space-x-2 '>
-                    <HireNowButton />
+                    <HireNowButton id={id} fullname= {full_name} careType={careType} />
                     <MoreDetailsButton id={id}/>
                   </div>
                 </div>

@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
-import { UserMoreInfoProfileState } from '../../state/configureStore';
+
 import { HiringModal } from '../Profile_components/HiringModal'
 
-export const HireNowButton = () => {
+export const HireNowButton = ({id, fullname, careType}:{id:number | null, fullname: string, careType:string|null}) => {
 
   const [open , setOpen ] = useState(false)
-  const { firstname, lastname,careType} = useSelector(UserMoreInfoProfileState);
+  
+  console.log(careType)
 
   return (
     <>
@@ -14,7 +14,7 @@ export const HireNowButton = () => {
       md:hover:bg-white md:hover:text-hireNow  bg-hireNow active:bg-white active:text-hireNow  
       md:text-xs lg:text-sm md:my-auto py-1 rounded-lg text-white active:scale-95 
       transition transition-duration-600 ease-out" onClick={()=>{setOpen(true)}}>Hire Now</button>
-      <HiringModal open={open} setOpen={setOpen} firstname={firstname} lastname={lastname} careType={careType}/>
+      <HiringModal open={open} setOpen={setOpen} firstname={fullname} careType={careType} id={id}/>
     </>
   )
 }

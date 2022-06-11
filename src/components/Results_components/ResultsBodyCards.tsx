@@ -4,7 +4,7 @@ import { ResultState } from '../../state/configureStore'
 import { ResultsBodyCard } from './ResultsBodyCard'
 
 export const ResultsBodyCards = () => {
-  const {results} = useSelector(ResultState)
+  const {results, searchResultsType} = useSelector(ResultState)
   return (
     <div className='mb-10'>
         {results?.map((element, index)=>{
@@ -19,6 +19,7 @@ export const ResultsBodyCards = () => {
                              province={element.province}
                              availability={element.availability}
                              id={element.id}
+                             careType={searchResultsType}
                              />
           </div>)
         })}
