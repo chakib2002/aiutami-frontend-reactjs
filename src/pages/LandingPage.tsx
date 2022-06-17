@@ -8,7 +8,7 @@ import { Section } from "../components/Home_components/Section";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { isAuthenticatedState } from "../state/configureStore";
-import { Dashboard } from "../components/Dashboard_components/Dashboard";
+import { DashboardPage } from "./DashboardPage";
 
 
 export const LandingPage = () => {
@@ -36,10 +36,7 @@ export const LandingPage = () => {
       )}
       {
         isAuth === true && (
-          <>
-            <NavBar isAuthData ={true}/>
-            <Dashboard />
-          </>
+          <DashboardPage />
         )
       }
     </motion.div>

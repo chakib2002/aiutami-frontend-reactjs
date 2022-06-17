@@ -120,3 +120,27 @@ export interface ResultResponse {
     link :string | null,
     occupation : string |null
   }
+
+  export interface RedisNotificationInterface {
+    message : {
+      id : number,
+      full_name: string,
+      phone_number: string,
+      location: string,
+      time: string,
+      job_description: string
+    }
+
+  } 
+
+  export interface dbNotificationInterface {
+    id: number,
+    full_name: string,
+    phone_number: string,
+    location: string,
+    job_description: string,
+    time: string,
+    seen: boolean,
+    accepted: boolean,
+    new: boolean,
+  }

@@ -10,6 +10,7 @@ import {
   Results,
   IsAuth,
   userProfile,
+  notification
 } from "./types/types";
 
 export const signinInitialState: signin = {
@@ -104,3 +105,5 @@ export const MoreInfoProfile : userProfile = {
     link :null,
     occupation : null
 }
+
+export const Notifications : notification = []

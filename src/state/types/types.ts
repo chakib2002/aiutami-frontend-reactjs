@@ -138,3 +138,15 @@ export type userProfile = {
     link :string | null,
     occupation : string |null
 }
+
+export type notification = {
+  id : number | null,
+  fullName : string | null,
+  phoneNumber : string | null,
+  location : string | null,
+  jobDescription : string | null,
+  time : string | null,
+  seen : boolean | null,
+  accepted : boolean | null,
+  new : boolean | null
+}[]

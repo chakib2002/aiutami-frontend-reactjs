@@ -1,3 +1,4 @@
+import { notifications } from './Slices/notificationSlice';
 import { UserProfile } from './Slices/userProfileSlice';
 import { configureStore } from "@reduxjs/toolkit";
 import {
@@ -32,7 +33,8 @@ export const store = configureStore({
       SearchSeniorCaregiverPageNumber.reducer,
     results_of_search: Result.reducer,
     isAuthenticated : isAuthReducer.reducer,
-    User_Profile_More_Info : UserProfile.reducer
+    User_Profile_More_Info : UserProfile.reducer,
+    Notification : notifications.reducer
   },
 });
 
@@ -60,7 +62,7 @@ export const searchSeniorCaregiverPageNumberState = (state: RootState) =>
 export const ResultState = (state: RootState) => state.results_of_search;
 export const isAuthenticatedState = (state : RootState)=>state.isAuthenticated
 export const UserMoreInfoProfileState = (state:RootState)=>state.User_Profile_More_Info
-
+export const NotificationState = (state:RootState)=>state.Notification
 
 export const useAppDispatch = () => useDispatch<AppDispatch>(); // Export a hook that can be reused to resolve types
 

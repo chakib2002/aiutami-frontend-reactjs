@@ -21,6 +21,7 @@ export const Menu = () => {
               .then((response)=>{
                 if (response.status === 200) {
                   dispatch(setIsAuth({text : false}))
+                  sessionStorage.removeItem("Aiutami_notifications")
                   Navigate("/", {replace : true})
                 }
               })
