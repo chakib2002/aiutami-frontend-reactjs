@@ -1,4 +1,4 @@
-import { RedisNotificationInterface, dbNotificationInterface } from './../types/interfaces';
+import { RedisNotificationInterface, dbNotificationInterface, notificationId } from './../types/interfaces';
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import { Notifications } from "../initialStates";
 
@@ -34,6 +34,23 @@ export const notifications = createSlice({
                 new : true
             })
         },
+        updateSeen :(state,{payload} : PayloadAction<notificationId>)=>{
+            state.forEach(element =>{
+                if(element.id == payload.text){
+                    element.seen = true
+                }
+            })
+        },
+        
+        DeleteNotification :(state,{payload} : PayloadAction<notificationId>)=>{
+            state.forEach(element=>{
+                if(element.id == payload.text){
+                    const index = state.indexOf(element)
+                    state.splice(index,1)
+                }
+            })
+        },
+        
         clearNotifications :(state)=>{
            return state = []
         }
@@ -41,4 +58,4 @@ export const notifications = createSlice({
 })
 
 
-export const {setDBNotifications, setRedisNotifications, clearNotifications} = notifications.actions
+export const {setDBNotifications, setRedisNotifications, clearNotifications, updateSeen, DeleteNotification} = notifications.actions

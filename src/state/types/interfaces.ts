@@ -12,7 +12,11 @@ export interface textString {
   text: string;
 }
 export interface TextNumber {
-  text: number;
+  text: number ;
+}
+
+export interface notificationId {
+  text : number | null
 }
 
 export interface textBool {

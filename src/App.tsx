@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { LandingPage } from "./pages/LandingPage";
 import { LoginPage } from "./pages/LoginPage";
@@ -15,17 +15,19 @@ import { useAppDispatch } from "./state/configureStore";
 import { ProtectedAuthentication} from "./pages/ProtectedAuthentication";
 import { MoreDetailsPage } from "./pages/MoreDetailsPage";
 import { clearNotifications, setDBNotifications, setRedisNotifications } from "./state/Slices/notificationSlice";
-import { dbNotificationInterface, RedisNotificationInterface } from "./state/types/interfaces";
+import { dbNotificationInterface } from "./state/types/interfaces";
 
+export const array :number [] = []
 
 function App() {
 
   
   axios.defaults.withCredentials = true;
 
+ 
+  const [NewNotificationNumber , setNewNotificationNumber] = useState(0)
   const location = useLocation();
   const dispatch = useAppDispatch();
-  const array :number [] = []
 
   useEffect(()=>{
     axios.get("http://localhost:3001/isAuth")
@@ -49,38 +51,40 @@ function App() {
 
 
   useEffect(()=>{
-    dispatch(clearNotifications());
-    fetchNotificationsFromdb(); 
+      dispatch(clearNotifications());
+      fetchNotificationsFromdb(); 
   },[])
 
   
   useEffect(()=>{
-    const timer = setInterval(
-      () => fetchNotificationsFromRedis(),
-      3000
-    );
-    return () => clearTimeout(timer); 
+      const timer = setInterval(
+        () => fetchNotificationsFromRedis(),
+        3000
+      );
+      return () => clearTimeout(timer); 
   },[])
 
 
   const fetchNotificationsFromdb = ()=>{
     axios.get('http://localhost:3001/fetchNotifications')
     .then(res=>{
-      res.data.map((element :dbNotificationInterface)=>{
-        return (
-          dispatch(setDBNotifications({
-            id : element.id,
-            full_name : element.full_name,
-            phone_number : element.phone_number,
-            location : element.location,
-            job_description : element.job_description,
-            time : element.time,
-            seen : element.seen,
-            accepted : element.accepted, 
-            new : element.new
-          }))
-        )
-      })
+      if(res.status === 200){
+        res.data.map((element :dbNotificationInterface)=>{
+          return (
+            dispatch(setDBNotifications({
+              id : element.id,
+              full_name : element.full_name,
+              phone_number : element.phone_number,
+              location : element.location,
+              job_description : element.job_description,
+              time : element.time,
+              seen : element.seen,
+              accepted : element.accepted, 
+              new : element.new
+            }))
+          )
+        })
+      }
     })   
     .catch(err=>console.log(err))
   }
@@ -90,19 +94,22 @@ function App() {
       ids: array
     })
     .then((res)=>{
-      res.data.map((element : any )=>{
-        array.push(element.message.id)
-        return (
-          dispatch(setRedisNotifications({
-            id : element.message.id,
-            full_name : element.message.full_name,
-            phone_number : element.message.phone_number,
-            job_description : element.message.job_description,
-            time : element.message.time,
-            location : element.message.location       
-          }))
-        )
-      })
+      if(res.status === 200){
+        res.data.map((element : any )=>{
+          array.push(element.message.id)
+          setNewNotificationNumber(array.length)
+          return (
+            dispatch(setRedisNotifications({
+              id : element.message.id,
+              full_name : element.message.full_name,
+              phone_number : element.message.phone_number,
+              job_description : element.message.job_description,
+              time : element.message.time,
+              location : element.message.location       
+            }))
+          )
+        })
+      }
     })
     .catch((err)=>{console.log(err)})
   }
@@ -110,21 +117,21 @@ function App() {
   return (
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage newNotificationNumber={NewNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />} />
         <Route element={<ProtectedAuthentication/>} >
           <Route path="/signin" element={<LoginPage />} />
         </Route>
         <Route element={<ProtectedAuthentication/>}>
           <Route path="/signup" element={<SignupPage />} /> 
         </Route>
-        <Route path="/search/housekeeper" element={<SearchPageHousekeeper />} />
-        <Route path="/search/tutor" element={<SearchPageTutor />} />
+        <Route path="/search/housekeeper" element={<SearchPageHousekeeper newNotificationNumber={NewNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />} />
+        <Route path="/search/tutor" element={<SearchPageTutor newNotificationNumber={NewNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />} />
         <Route
           path="/search/seniorcaregiver"
-          element={<SearchPageSeniorcaregiver />}
+          element={<SearchPageSeniorcaregiver newNotificationNumber={NewNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />}
         />
         <Route element={<ProtectedResults />}>
-          <Route path="Results" element={<ResultPage />} />
+          <Route path="Results" element={<ResultPage newNotificationNumber={NewNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />} />
         </Route>
         <Route path="/Results/:user_id" element={<MoreDetailsPage/>} />
       </Routes>

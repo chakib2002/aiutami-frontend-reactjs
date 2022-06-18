@@ -11,7 +11,7 @@ import { isAuthenticatedState } from "../state/configureStore";
 import { DashboardPage } from "./DashboardPage";
 
 
-export const LandingPage = () => {
+export const LandingPage = ({newNotificationNumber, setNewNotificationNumber} : {newNotificationNumber : number ,setNewNotificationNumber :Function}) => {
 
   const {isAuth} = useSelector(isAuthenticatedState)
   
@@ -36,7 +36,7 @@ export const LandingPage = () => {
       )}
       {
         isAuth === true && (
-          <DashboardPage />
+          <DashboardPage newNotificationNumber={newNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />
         )
       }
     </motion.div>

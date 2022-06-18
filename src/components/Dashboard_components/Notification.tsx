@@ -1,4 +1,9 @@
+import axios from 'axios'
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { NotificationState, useAppDispatch } from '../../state/configureStore'
+import { DeleteNotification, updateSeen } from '../../state/Slices/notificationSlice'
+
 
 export const Notification = ({
   fullname,
@@ -17,9 +22,22 @@ export const Notification = ({
   id : number |null,
   seen : boolean |null
 }) => {
+
+  const dispatch = useAppDispatch()
+
   return (
     <div className=''>
-    <div className='px-2 lg:px-5 md:px-3 cursor-pointer lg:hover:bg-slate-100 py-2 transition transition-duration-1000 ease-in '>
+    <div
+      onClick={()=>{
+        axios.patch("http://localhost:3001/updateSeen/"+id)
+       .then(()=>{
+          dispatch(updateSeen({text : id}))
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+      }} //pop up the modal and update the seen column in the state and in the db . 
+     className={`px-2 lg:px-5 md:px-3 cursor-pointer lg:hover:bg-slate-200 lg:py-2 transition transition-duration-1000 ease-in ${!seen && 'bg-slate-100'}`}>
         <div className='grid grid-flow-col grid-cols-12'>
           <div className='col-span-11 space-y-2 border-b lg:border-b-0'>
             <div className=' flex space-x-4 sm:space-x-12 md:space-x-16 
@@ -39,14 +57,26 @@ export const Notification = ({
             </div>
           </div>
 
-          <div className='grid grid-flow-row space-y-3 my-2 md:flex md:space-y-0 md:space-x-3 ml-2 md:ml-3'>
+          <div
+          onClick={()=>{}}// ACCEPT THE JOB REQUEST NOTIFICATION
+          className='grid grid-flow-row space-y-3 my-2 md:flex md:space-y-0 md:space-x-3 ml-2 md:ml-3'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
               className="cursor-pointer h-5 w-5  active:opacity-100
               lg:hover:fill-darkgreen opacity-80 relative md:top-[24px] fill-green
               transition transition-duration-1000 ease-out active:scale-90">
               <path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"/>
             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+            <svg
+            onClick={()=>{
+              axios.delete('http://localhost:3001/deleteNotification/'+id)
+              .then(res=>{
+                if(res.status === 200){
+                  dispatch(DeleteNotification({text: id}))
+                }
+              })
+              .catch((err)=>console.log(err))
+            }}
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
             className="cursor-pointer h-5 w-5 text-dark active:opacity-100
               lg:hover:opacity-100 opacity-60 relative md:top-[24px]
               transition transition-duration-1000 ease-out active:scale-90"> 
