@@ -122,15 +122,12 @@ export interface ResultResponse {
   }
 
   export interface RedisNotificationInterface {
-    message : {
       id : number,
       full_name: string,
       phone_number: string,
       location: string,
       time: string,
       job_description: string
-    }
-
   } 
 
   export interface dbNotificationInterface {
