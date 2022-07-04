@@ -2,18 +2,17 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { array } from "../../App";
-import { isAuthenticatedState } from "../../state/configureStore";
+import { array } from "../../pages/DashboardPage";
+import { isAuthenticatedState, NotificationsNumberState, useAppDispatch } from "../../state/configureStore";
+import { setNotificationsNumber } from "../../state/Slices/notificationsNumberSlice";
 import { Menu } from "../Dashboard_components/Menu";
 import { Notifications } from "../Dashboard_components/Notifications";
 
 export const HalfNavbar = ({
-  isAuth,
-  newNotificationNumber,
-  setNewNotificationNumber} : {
+  isAuth
+  } : {
   isAuth: boolean,
-  newNotificationNumber? : number ,
-  setNewNotificationNumber? :Function})  => {
+  })  => {
 
 
   const [settings, setSettings] = useState(false);
@@ -21,7 +20,8 @@ export const HalfNavbar = ({
   const data = useSelector(isAuthenticatedState)
   const { link }= data
 
-  console.log(newNotificationNumber)
+  const newNotificationNumber = useSelector(NotificationsNumberState)
+  const dispatch = useAppDispatch()
 
   return (
     <>
@@ -49,7 +49,7 @@ export const HalfNavbar = ({
                         array.map((element, index)=>array.splice(0,1))
 
                       })
-                      .then(()=> setNewNotificationNumber && setNewNotificationNumber(0) )
+                      .then(()=> dispatch(setNotificationsNumber({text : 0})) )
                       .catch((err)=>{console.log(err)})
                     }}
                     xmlns="http://www.w3.org/2000/svg"

@@ -20,12 +20,7 @@ import {
 import { Casename } from "../state/types/enums";
 import { motion } from "framer-motion";
 
-export const SearchPageTutor = (
-  {newNotificationNumber, 
-    setNewNotificationNumber} : {
-      newNotificationNumber : number ,
-      setNewNotificationNumber :Function}
-) => {
+export const SearchPageTutor = () => {
   const page_number = useSelector(seachTutorPageNumberState);
   const data = useSelector(searchTutorState);
   const auth_data = useSelector(isAuthenticatedState)
@@ -33,8 +28,8 @@ export const SearchPageTutor = (
     <motion.div
     key="searchPageTutor" 
     exit={{ opacity: 0 }}>
-      {auth_data.isAuth === true && <HalfNavbar isAuth={true} newNotificationNumber={newNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />}
-      {auth_data.isAuth === false && <HalfNavbar isAuth={false} newNotificationNumber={newNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />}
+      {auth_data.isAuth === true && <HalfNavbar isAuth={true}  />}
+      {auth_data.isAuth === false && <HalfNavbar isAuth={false}  />}
       <div className="w-4/5 m-auto mt-10 cursor-default">
         <p className=" tracking-wide text-xl font-medium opacity-75">
           Find your Best <span className="font-bold">Tutor</span>{" "}

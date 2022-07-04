@@ -20,12 +20,7 @@ import {
 import { SearchCardFilterSeniorcaregiver } from "../components/Search_components/SearchCardFilterSeniorcaregiver";
 import { motion } from "framer-motion";
 
-export const SearchPageSeniorcaregiver = (
-  {newNotificationNumber, 
-    setNewNotificationNumber} : {
-      newNotificationNumber : number ,
-      setNewNotificationNumber :Function}
-) => {
+export const SearchPageSeniorcaregiver = () => {
   
   const page_number = useSelector(searchSeniorCaregiverPageNumberState);
   const data = useSelector(searchSeniorCaregiverState);
@@ -38,7 +33,7 @@ export const SearchPageSeniorcaregiver = (
     exit={{ opacity: 0 }}>
       {auth_data.isAuth === true && 
       <>
-      <HalfNavbar isAuth={true} newNotificationNumber={newNotificationNumber} setNewNotificationNumber={setNewNotificationNumber}/>
+      <HalfNavbar isAuth={true} />
       <div className="w-4/5 m-auto mt-10 cursor-default">
         <p className=" tracking-wide text-xl font-medium opacity-75">
           Find your Best <span className="font-bold">Senior caregiver</span>{" "}

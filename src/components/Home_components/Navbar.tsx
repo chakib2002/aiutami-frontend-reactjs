@@ -2,22 +2,19 @@ import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { isAuthenticatedState } from "../../state/configureStore";
+import { isAuthenticatedState, NotificationsNumberState, useAppDispatch } from "../../state/configureStore";
 import { Menu } from "../Dashboard_components/Menu";
 import { Notifications } from "../Dashboard_components/Notifications";
-import { array } from "../../App";
+import { array } from "../../pages/DashboardPage";
+import { setNotificationsNumber } from "../../state/Slices/notificationsNumberSlice";
 
-export const NavBar = ({
-  isAuthData,
-  newNotificationNumber,
-  setNewNotificationNumber} : {
-  isAuthData : boolean,
-  newNotificationNumber? : number ,
-  setNewNotificationNumber? :Function}) => {
+export const NavBar = ({isAuthData} : {isAuthData : boolean}) => {
  
   const { link } = useSelector(isAuthenticatedState);
   const [settings, setSettings] = useState(false);
   const [notification, setNotification] = useState(false);
+  const newNotificationNumber = useSelector(NotificationsNumberState);
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -71,7 +68,7 @@ export const NavBar = ({
                       .then(()=>{
                         array.map((element, index)=>array.splice(0,1))
                       })
-                      .then(()=> setNewNotificationNumber && setNewNotificationNumber(0) )
+                      .then(()=> dispatch(setNotificationsNumber({text: 0})) )
                       .catch((err)=>{console.log(err)})
                     }}
                     xmlns="http://www.w3.org/2000/svg"

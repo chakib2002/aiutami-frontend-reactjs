@@ -11,13 +11,17 @@ import { ProtectedResults } from "./pages/ProtectedResults";
 import { ResultPage } from "./pages/ResultPage";
 import axios from "axios";
 import { setFirstName, setId, setIsAuth, setLastName, setLink } from "./state/Slices/isAuthenticatedSlice";
-import { useAppDispatch } from "./state/configureStore";
+import { NotificationsNumberState, useAppDispatch } from "./state/configureStore";
 import { ProtectedAuthentication} from "./pages/ProtectedAuthentication";
 import { MoreDetailsPage } from "./pages/MoreDetailsPage";
 import { clearNotifications, setDBNotifications, setRedisNotifications } from "./state/Slices/notificationSlice";
 import { dbNotificationInterface } from "./state/types/interfaces";
+import { useSelector } from "react-redux";
+import { setNotificationsNumber } from "./state/Slices/notificationsNumberSlice";
+import { ProtectedDashboard } from "./pages/ProtectedDashboard";
+import { DashboardPage } from "./pages/DashboardPage";
 
-export const array :number [] = []
+
 
 function App() {
 
@@ -25,7 +29,7 @@ function App() {
   axios.defaults.withCredentials = true;
 
  
-  const [NewNotificationNumber , setNewNotificationNumber] = useState(0)
+  const NewNotificationNumber = useSelector(NotificationsNumberState) 
   const location = useLocation();
   const dispatch = useAppDispatch();
 
@@ -50,88 +54,31 @@ function App() {
   })
 
 
-  useEffect(()=>{
-      dispatch(clearNotifications());
-      fetchNotificationsFromdb(); 
-  },[])
-
-  
-  useEffect(()=>{
-      const timer = setInterval(
-        () => fetchNotificationsFromRedis(),
-        3000
-      );
-      return () => clearTimeout(timer); 
-  },[])
-
-
-  const fetchNotificationsFromdb = ()=>{
-    axios.get('http://localhost:3001/fetchNotifications')
-    .then(res=>{
-      if(res.status === 200){
-        res.data.map((element :dbNotificationInterface)=>{
-          return (
-            dispatch(setDBNotifications({
-              id : element.id,
-              full_name : element.full_name,
-              phone_number : element.phone_number,
-              location : element.location,
-              job_description : element.job_description,
-              time : element.time,
-              seen : element.seen,
-              accepted : element.accepted, 
-              new : element.new
-            }))
-          )
-        })
-      }
-    })   
-    .catch(err=>console.log(err))
-  }
-
-  const fetchNotificationsFromRedis = ()=>{
-    axios.post('http://localhost:3001/checkForNewNotifications',{
-      ids: array
-    })
-    .then((res)=>{
-      if(res.status === 200){
-        res.data.map((element : any )=>{
-          array.push(element.message.id)
-          setNewNotificationNumber(array.length)
-          return (
-            dispatch(setRedisNotifications({
-              id : element.message.id,
-              full_name : element.message.full_name,
-              phone_number : element.message.phone_number,
-              job_description : element.message.job_description,
-              time : element.message.time,
-              location : element.message.location       
-            }))
-          )
-        })
-      }
-    })
-    .catch((err)=>{console.log(err)})
-  }
+ 
 
   return (
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<LandingPage newNotificationNumber={NewNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />} />
+        <Route element={<ProtectedAuthentication />}>
+          <Route path="/" element={<LandingPage />} />
+        </Route>
+        <Route element={<ProtectedDashboard/>}>
+          <Route path="/dashboard" element={<DashboardPage />} />
+        </Route>
         <Route element={<ProtectedAuthentication/>} >
           <Route path="/signin" element={<LoginPage />} />
         </Route>
         <Route element={<ProtectedAuthentication/>}>
           <Route path="/signup" element={<SignupPage />} /> 
         </Route>
-        <Route path="/search/housekeeper" element={<SearchPageHousekeeper newNotificationNumber={NewNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />} />
-        <Route path="/search/tutor" element={<SearchPageTutor newNotificationNumber={NewNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />} />
+        <Route path="/search/housekeeper" element={<SearchPageHousekeeper  />} />
+        <Route path="/search/tutor" element={<SearchPageTutor  />} />
         <Route
           path="/search/seniorcaregiver"
-          element={<SearchPageSeniorcaregiver newNotificationNumber={NewNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />}
+          element={<SearchPageSeniorcaregiver  />}
         />
         <Route element={<ProtectedResults />}>
-          <Route path="Results" element={<ResultPage newNotificationNumber={NewNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />} />
+          <Route path="Results" element={<ResultPage />} />
         </Route>
         <Route path="/Results/:user_id" element={<MoreDetailsPage/>} />
       </Routes>

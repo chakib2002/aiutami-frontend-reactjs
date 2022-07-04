@@ -6,17 +6,9 @@ import { LargeCards } from "../components/Home_components/LargeCards";
 import { NavBar } from "../components/Home_components/Navbar";
 import { Section } from "../components/Home_components/Section";
 import { AnimatePresence, motion } from "framer-motion";
-import { useSelector } from "react-redux";
-import { isAuthenticatedState } from "../state/configureStore";
-import { DashboardPage } from "./DashboardPage";
 
 
-export const LandingPage = ({newNotificationNumber, setNewNotificationNumber} : {newNotificationNumber : number ,setNewNotificationNumber :Function}) => {
-
-  const {isAuth} = useSelector(isAuthenticatedState)
-  
-
-
+export const LandingPage = () => {  
   return (
     <AnimatePresence exitBeforeEnter>
     <motion.div
@@ -24,21 +16,12 @@ export const LandingPage = ({newNotificationNumber, setNewNotificationNumber} : 
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}>
-      {isAuth === false && (
-      <>
         <NavBar isAuthData ={false}/>
         <Banner />
         <Cards />
         <LargeCards />
         <Section />
         <Footer />
-      </>
-      )}
-      {
-        isAuth === true && (
-          <DashboardPage newNotificationNumber={newNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />
-        )
-      }
     </motion.div>
     </AnimatePresence>
   );

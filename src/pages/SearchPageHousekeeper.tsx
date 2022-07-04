@@ -19,12 +19,7 @@ import { decrementPageNumberHousekeeper } from "../state/Slices/searchHousekeepe
 import { Casename } from "../state/types/enums";
 import { motion } from "framer-motion";
 
-export const SearchPageHousekeeper = (
-  {newNotificationNumber, 
-    setNewNotificationNumber} : {
-      newNotificationNumber : number ,
-      setNewNotificationNumber :Function}
-) => {
+export const SearchPageHousekeeper = () => {
   const page_number = useSelector(searchHousekeeperPageNumberState);
   const data = useSelector(searchHousekeeperState);
   const auth_data = useSelector(isAuthenticatedState)
@@ -34,7 +29,7 @@ export const SearchPageHousekeeper = (
     exit={{ opacity: 0 }}>
      { auth_data.isAuth === true &&
      <>
-       <HalfNavbar isAuth={true} newNotificationNumber={newNotificationNumber} setNewNotificationNumber={setNewNotificationNumber} />
+       <HalfNavbar isAuth={true}  />
       
       <div className="w-4/5 m-auto mt-10 cursor-default">
         <p className=" tracking-wide text-xl font-medium opacity-75">
