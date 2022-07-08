@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { NotificationState, useAppDispatch } from '../../state/configureStore'
+import { DeleteAcceptedNotification } from '../../state/Slices/AcceptedNotificationsSlice'
 import { DeleteNotification, updateSeen } from '../../state/Slices/notificationSlice'
 
 
@@ -73,6 +74,8 @@ export const Notification = ({
                 if(res.status === 200){
                   dispatch(DeleteNotification({text: id}))
                 }
+              }).then(()=>{
+                dispatch(DeleteAcceptedNotification({text: id}))
               })
               .catch((err)=>console.log(err))
             }}

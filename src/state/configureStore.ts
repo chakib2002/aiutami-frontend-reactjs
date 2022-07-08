@@ -19,6 +19,8 @@ import {
 } from "./Slices/searchSeniorCaregiverSlice";
 import { Result } from "./Slices/ResultSlice";
 import { isAuthReducer } from "./Slices/isAuthenticatedSlice";
+import { AcceptedNotifications } from './Slices/AcceptedNotificationsSlice';
+import { NotificationDetails } from './Slices/NotificationDetailsSlice';
 
 export const store = configureStore({
   reducer: {
@@ -36,7 +38,9 @@ export const store = configureStore({
     isAuthenticated : isAuthReducer.reducer,
     User_Profile_More_Info : UserProfile.reducer,
     Notification : notifications.reducer,
-    NotificationsNumber : notificationsNumber.reducer
+    NotificationsNumber : notificationsNumber.reducer,
+    Accepted_Notifications : AcceptedNotifications.reducer,
+    Notification_id : NotificationDetails.reducer
   },
 });
 
@@ -66,6 +70,8 @@ export const isAuthenticatedState = (state : RootState)=>state.isAuthenticated
 export const UserMoreInfoProfileState = (state:RootState)=>state.User_Profile_More_Info
 export const NotificationState = (state:RootState)=>state.Notification
 export const NotificationsNumberState = (state : RootState)=>state.NotificationsNumber
+export const AcceptedNotificationsState = (state:RootState)=>state.Accepted_Notifications
+export const NotificationIDState = (state: RootState)=>state.Notification_id
 
 export const useAppDispatch = () => useDispatch<AppDispatch>(); // Export a hook that can be reused to resolve types
 

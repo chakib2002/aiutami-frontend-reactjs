@@ -150,3 +150,17 @@ export type notification = {
   accepted : boolean | null,
   new : boolean | null
 }[]
+
+
+
+export type accepted_notifications = {
+  id : number,
+  full_name : string, 
+  phone_number :string,
+  location : string,
+  job_description : string,
+  time : string,
+  seen : boolean,
+  accepted : boolean,
+  new:boolean
+}[]

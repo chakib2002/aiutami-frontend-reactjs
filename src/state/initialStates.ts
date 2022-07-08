@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+import { AcceptedNotificationsState } from "./configureStore";
 import {
   care_type,
 } from "./types/enums";
@@ -10,8 +12,11 @@ import {
   Results,
   IsAuth,
   userProfile,
-  notification
+  notification,
+  accepted_notifications,
 } from "./types/types";
+
+
 
 export const signinInitialState: signin = {
   email: "",
@@ -107,3 +112,6 @@ export const MoreInfoProfile : userProfile = {
 }
 
 export const Notifications : notification = []
+
+export const notificationId : number | null = null
+

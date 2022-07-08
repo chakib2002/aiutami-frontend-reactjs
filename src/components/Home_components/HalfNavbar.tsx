@@ -1,10 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import {  useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { array } from "../../pages/DashboardPage";
 import { isAuthenticatedState, NotificationsNumberState, useAppDispatch } from "../../state/configureStore";
+
 import { setNotificationsNumber } from "../../state/Slices/notificationsNumberSlice";
+
 import { Menu } from "../Dashboard_components/Menu";
 import { Notifications } from "../Dashboard_components/Notifications";
 
@@ -26,7 +28,7 @@ export const HalfNavbar = ({
   return (
     <>
     <div
-      className="flex justify-between bg-primary ">
+      className="flex justify-between bg-primary">
       <div className="bg-primary">
         <Link to="/">
           <div className={`${isAuth && 'pt-1'} cursor-pointer font-bold text-2xl text-secondary ml-5 my-5 active:text-bluedark transition transition-duration-400 ease-out`}>
@@ -37,7 +39,7 @@ export const HalfNavbar = ({
       <div className="bg-primary">
       {isAuth === true && (
             <div className="bg-primary py-4 col-span-3 space-x-5 text-center pr-5">
-            <div className="flex justify-end space-x-9">
+            <div className="flex justify-end space-x-6 mr-10">
                   <svg
                     onClick={()=>{
                       setSettings(false);
@@ -78,7 +80,7 @@ export const HalfNavbar = ({
                        "https://imgs.search.brave.com/vLBQF6u3LXw69YDbtMDqv8K0uUxyGpga5L_8nN-ip7Y/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly90aGVw/b3dlcm9mdGhlZHJl/YW0ub3JnL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE1LzA5L2dl/bmVyaWMtcHJvZmls/ZS1waWN0dXJlLTEy/MDB4MTIwMC5qcGc"
                   }
                   alt=""
-                  className="h-12 w-12 rounded-full inline mr-1 cursor-pointer lg:hover:opacity-90 active:scale-95 transition transition-duration-900 ease-out "
+                  className="h-12 w-12 rounded-full inline mr-1 cursor-pointer lg:hover:opacity-90 active:scale-95 transition transition-duration-900 ease-out  "
                 />
                 </div>
           </div>

@@ -1,5 +1,5 @@
 import { RedisNotificationInterface, dbNotificationInterface, notificationId } from './../types/interfaces';
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Notifications } from "../initialStates";
 
 
@@ -36,7 +36,7 @@ export const notifications = createSlice({
         },
         updateSeen :(state,{payload} : PayloadAction<notificationId>)=>{
             state.forEach(element =>{
-                if(element.id == payload.text){
+                if(element.id === payload.text){
                     element.seen = true
                 }
             })
@@ -44,7 +44,7 @@ export const notifications = createSlice({
         
         DeleteNotification :(state,{payload} : PayloadAction<notificationId>)=>{
             state.forEach(element=>{
-                if(element.id == payload.text){
+                if(element.id === payload.text){
                     const index = state.indexOf(element)
                     state.splice(index,1)
                 }

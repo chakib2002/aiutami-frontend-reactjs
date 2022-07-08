@@ -1,6 +1,5 @@
-import axios from 'axios'
 import React from 'react'
-import { NotificationState, useAppDispatch } from '../../state/configureStore'
+import { NotificationState } from '../../state/configureStore'
 import { Notification } from './Notification'
 import { useSelector } from 'react-redux'
 
@@ -22,7 +21,7 @@ export const Notifications = () => {
                   jobDescription={element.jobDescription}
                   id={element.id}
                   time={element.time}
-                  seen ={element.seen} />
+                  seen ={element.seen}/>
               </div>
             )
           })

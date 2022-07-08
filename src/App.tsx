@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { LandingPage } from "./pages/LandingPage";
 import { LoginPage } from "./pages/LoginPage";
@@ -11,13 +11,9 @@ import { ProtectedResults } from "./pages/ProtectedResults";
 import { ResultPage } from "./pages/ResultPage";
 import axios from "axios";
 import { setFirstName, setId, setIsAuth, setLastName, setLink } from "./state/Slices/isAuthenticatedSlice";
-import { NotificationsNumberState, useAppDispatch } from "./state/configureStore";
+import {  useAppDispatch } from "./state/configureStore";
 import { ProtectedAuthentication} from "./pages/ProtectedAuthentication";
 import { MoreDetailsPage } from "./pages/MoreDetailsPage";
-import { clearNotifications, setDBNotifications, setRedisNotifications } from "./state/Slices/notificationSlice";
-import { dbNotificationInterface } from "./state/types/interfaces";
-import { useSelector } from "react-redux";
-import { setNotificationsNumber } from "./state/Slices/notificationsNumberSlice";
 import { ProtectedDashboard } from "./pages/ProtectedDashboard";
 import { DashboardPage } from "./pages/DashboardPage";
 
@@ -28,8 +24,6 @@ function App() {
   
   axios.defaults.withCredentials = true;
 
- 
-  const NewNotificationNumber = useSelector(NotificationsNumberState) 
   const location = useLocation();
   const dispatch = useAppDispatch();
 
@@ -59,28 +53,44 @@ function App() {
   return (
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
+
         <Route element={<ProtectedAuthentication />}>
           <Route path="/" element={<LandingPage />} />
         </Route>
+
         <Route element={<ProtectedDashboard/>}>
           <Route path="/dashboard" element={<DashboardPage />} />
         </Route>
+
         <Route element={<ProtectedAuthentication/>} >
           <Route path="/signin" element={<LoginPage />} />
         </Route>
+
         <Route element={<ProtectedAuthentication/>}>
           <Route path="/signup" element={<SignupPage />} /> 
         </Route>
-        <Route path="/search/housekeeper" element={<SearchPageHousekeeper  />} />
-        <Route path="/search/tutor" element={<SearchPageTutor  />} />
-        <Route
-          path="/search/seniorcaregiver"
-          element={<SearchPageSeniorcaregiver  />}
-        />
+
+        <Route element={<ProtectedAuthentication />}>
+          <Route path="/search/housekeeper" element={<SearchPageHousekeeper  />} />
+        </Route>
+
+        <Route element={<ProtectedAuthentication />}>
+          <Route path="/search/tutor" element={<SearchPageTutor  />} />
+        </Route>
+
+        <Route element={<ProtectedAuthentication />}>
+          <Route
+            path="/search/seniorcaregiver"
+            element={<SearchPageSeniorcaregiver  />}
+          />
+        </Route>
+
         <Route element={<ProtectedResults />}>
           <Route path="Results" element={<ResultPage />} />
         </Route>
+
         <Route path="/Results/:user_id" element={<MoreDetailsPage/>} />
+        
       </Routes>
     </AnimatePresence>
   );
